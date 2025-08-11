@@ -1,0 +1,17 @@
+\documentclass[10pt]{extarticle}
+
+\usepackage{bookstyle}
+\numberwithin{equation}{subsection} % Привязываем к подразделу
+\numberwithin{subsection}{section}  % Чтобы subsection учитывал section
+
+\begin{document}
+	\include{source/title}
+	\input{source/content}
+	\include{source/opening}
+
+	\section{Основные понятия теории пределов и непрерывности функций многих переменных}
+	\input{source/1_1.tex}
+	\input{source/1_2.tex}
+	\input{source/1_3.tex}
+	\input{source/1_4.tex}
+\end{document}
