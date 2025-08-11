@@ -4,6 +4,11 @@
 \numberwithin{equation}{subsection} % Привязываем к подразделу
 \numberwithin{subsection}{section}  % Чтобы subsection учитывал section
 
+\makeatletter
+\def\@evenfoot{\hfil Страница \thepage \hfil} % Для четных страниц
+\def\@oddfoot{\hfil Страница \thepage \hfil}  % Для нечетных страниц
+\makeatother
+
 \begin{document}
 	\include{source/title}
 	\input{source/content}

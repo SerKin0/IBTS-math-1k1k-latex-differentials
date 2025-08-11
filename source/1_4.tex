@@ -1,3 +1,103 @@
 \subsection{Понятие непрерывности функции многих переменных}
 
-\cref{eq:1.1.2}
+\begin{tbox}{Непрерывность функции одной переменной}
+	Вспомним определение непрерывной функции одного действительного переменного. Функция \(y = f(x)\), где \(x \in E \subset \mathbb{R}\), называется непрерывной в точке \(x_0 \in E\), если $\lim_{x \to x_0} f(x) = f(x_0)$, то есть предел \(f(x)\) при \(x \to x_0\) равен значению функции в точке \(x_0\). \\
+
+	В этом случае предельная точка \(x_0 \in E\), поэтому на языке \(\varepsilon - \delta\)-определение принимает вид:
+	\begin{align} \label{eq:1.4.1}
+		(\forall \varepsilon > 0)(\exists \delta = \delta(\varepsilon) > 0)(\forall x \in E \subset \mathbb{R}, \, |x - x_0| < \delta): \, |f(x) - f(x_0)| < \varepsilon
+	\end{align}
+\end{tbox}
+
+\begin{tbox}{Приращение функции одной переменной}
+	Если в определении (\ref{eq:1.4.1}) \((x - x_0 = \Delta x)\) приращение аргумента, $f(x) - f(x_0) = \Delta f(x_0)$ -- приращение функции, то определение (\ref{eq:1.4.1}) можно записать в виде:
+	\begin{align} \label{eq:1.4.2}
+		(\forall \varepsilon > 0)(\exists \delta = \delta(\varepsilon) > 0)(\forall x \in E \subset \mathbb{R}, \, |\Delta x| < \delta): \, |\Delta f(x_0)| < \varepsilon
+	\end{align}
+
+	Поэтому из непрерывной функции малым приращением аргумента соответствуют малые приращения функции.
+\end{tbox}
+
+\begin{tbox}{Непрерывность функции многих переменных}
+	Обобщим определения непрерывности функции одной переменной на случай функции многих переменных. Пусть на множестве \(E \subset \mathbb{R}^k\) задана функция \(y=f(\vec{x})\), где $\vec{x} = (x_1, x_2, ..., x_k) \in E \subset \mathbb{R}^k$ и пусть $\vec{x}_0 = (x_\text{$0_1$}, x_\text{$0_2$}, ..., x_\text{$0_k$}) \in E \subset \mathbb{R}^k$ - предельная точка множества $E$.\\
+
+	Функция $y = f(\vec{x})$ называется непрерывной в точке $\vec{x}_0$, если:
+	\begin{align} \label{eq:1.4.3}
+		\lim_{\vec{x} \to \vec{x}_0} f(\vec{x}) = f(\vec{x}_0) \qquad \lim_{\tiny{\begin{array}[b]{c}x_1 \to a_1\\x_2 \to a_1\\ \cdots \\ x_k \to a_k\end{array}}} f(x_1, x_2, ..., x_k) = f(x_\text{$0_1$}, x_\text{$0_2$}, ..., x_\text{$0_k$})
+	\end{align}
+\end{tbox}
+
+\begin{tbox}{Непрерывность на языке $\varepsilon - \delta$}
+	На языке <<$\varepsilon - \delta$>> это определение получается из определения (\ref{eq:1.4.1}) при замене $x \to \vec{x}$, $x_0 \to \vec{x}_0$ и $|x - x_0| \to ||\vec{x} - \vec{x}_0||$.
+	\begin{align} \label{eq:1.4.4}
+		(\forall \varepsilon > 0)(\exists \delta = \delta(\varepsilon) > 0)(\forall \vec{x} \in E \subset \mathbb{R}^k, \, ||\vec{x} - \vec{x}_0|| < \delta): \, |f(\vec{x}) - f(\vec{x}_0)| < \varepsilon
+	\end{align}
+\end{tbox}
+
+\begin{tbox}{Приращение аргументов и функции}
+	В определении (\ref{eq:1.4.4}) обозначим:
+	\begin{align}
+		\Delta \vec{x} = \vec{x} - \vec{x}_0 = (x_1 - x_\text{$0_1$}, x_2 - x_\text{$0_2$}, ..., x_k - x_\text{$0_k$}) = (\Delta x_1, \Delta x_2, ..., \Delta x_k)
+	\end{align}
+	--- вектор приращения аргументов.
+	\begin{align} \label{eq:1.4.5}
+		\Delta f(\vec{x}) = f(\vec{x}) - f(\vec{x}_0)
+	\end{align}
+	--- приращение функции, аналогичное (\ref{eq:1.4.2}), только здесь $\Delta x$ заменяем на вектор $\Delta \vec{x}$, и соответственно $|\Delta x|$ заменяем на $||\Delta \vec{x}||$.
+	\begin{align} \label{eq:1.4.6}
+		(\forall \varepsilon > 0)(\exists \delta = \delta(\varepsilon) > 0)(\forall \vec{x} \in E \subset \mathbb{R}^k, \, ||\Delta \vec{x}|| < \delta): \, |\Delta f(\vec{x}_0)| < \varepsilon
+	\end{align}
+	--- здесь \(||\Delta \vec{x}|| = \sqrt{(\Delta x_1)^2 + (\Delta x_2)^2 + ... + (\Delta x_k)^2}\).
+\end{tbox}
+
+\begin{tbox}{Полное приращение функции}
+	Если дать приращение переменной $\vec{x}$ в точке $\vec{x}_0$ по все независимым переменным одновременной т.е. $\vec{x} - \vec{x}_0 = \Delta \vec{x} \Rightarrow \vec{x} = \vec{x}_0 + \Delta \vec{x} = (x_1 + x_\text{$0_1$}, x_2 + x_\text{$0_2$}, ..., x_k + x_\text{$0_k$})$, то приращение, которое получит функция $f(\vec{x})$ в точке $\vec{x}_0$ называется полным приращением функции (\ref{eq:1.4.7}).
+	\begin{multline} \label{eq:1.4.7}
+		\Delta f(\vec{x}_0) = f(\vec{x}) - f(\vec{x}_0) = f(\vec{x}_0 + \Delta \vec{x}) =\\= f(x_1 + x_\text{$0_1$}, x_2 + x_\text{$0_2$}, ..., x_k + x_\text{$0_k$}) - f(x_\text{$0_1$}, x_\text{$0_2$}, ..., x_\text{$0_k$})
+	\end{multline}
+\end{tbox}
+
+\begin{tbox}{Непрерывность по совокупности переменных}
+	Тогда определение непрерывности (\ref{eq:1.4.6}) словами можно сформулировать так:
+
+	Функция $y = f(\vec{x})$ непрерывна в точке $\vec{x}_0$ по совокупности переменные (т.е. по всем  переменным $x_1, x_2, ..., x_k$ одновременно), если малым приращениям всех независимых переменных соответствует малое полное приращение функции.
+\end{tbox}
+
+\begin{tbox}{Частное приращение функции}
+	Для функции многих переменных приращение аргумента можно давать также только по отдельности переменной. Обозначим ее $x_i$, где $i=1,2,..., \vec{k}$, что означает либо по $x_1$, либо по $x_2$, ..., либо по $x_k$. Вектор приращений аргументов в этом случае принимает вид:
+	\[\Delta \vec{x} = (0, ..., 0, \Delta x_i, 0, ..., 0)\]
+	\[\vec{x} = \vec{x}_0 + \Delta \vec{x} = (x_\text{$0_1$}, ..., x_\text{$0_{i - 1}$}, x_\text{$0_i$} + \Delta x_i, x_\text{$0_{i + 1}$}, ..., x_\text{$0_k$})\]
+
+	Тогда приращение, которое получит функция в этом случае, называется \uline{частным приращением функции} в точке $\vec{x}_0$ по переменной $x_i$ и обозначается $\Delta_i f(\vec{x}_0)$:
+	\begin{multline} \label{eq:1.4.8}
+		\Delta_i f(\vec{x}_0) = f(\vec{x}_0 + \Delta \vec{x}) - f(\vec{x}_0) = f(x_\text{$0_1$}, \cdots, x_\text{$0_{i - 1}$}, x_\text{$0_i$} + \Delta x_i, x_\text{$0_{i + 1}$}, \cdots, x_\text{$0_k$}) - \\
+		-f(x_\text{$0_1$}, \cdots, x_\text{$0_{i-1}$}, x_\text{$0_i$}, x_\text{$0_{i+1}$}, \cdots, x_\text{$0_k$})
+	\end{multline}
+\end{tbox}
+
+\begin{tbox}{Непрерывность по отдельной переменной}
+	Функция $y = f(\vec{x})$ называется \uline{непрерывной в точке $\vec{x}_0$ по отдельной переменной $x_i$}, если:
+	\begin{multline} \label{eq:1.4.9}
+		\lim_{x_i \to x_\text{$0_i$}} f(x_\text{$0_1$}, ..., x_\text{$0_{i-1}$}, x_\text{$0_i$}, x_\text{$0_{i+1}$}, ..., x_\text{$0_k$}) =\\= f(x_\text{$0_1$}, ..., x_\text{$0_{i-1}$}, x_\text{$0_i$}, x_\text{$0_{i+1}$}, ..., x_\text{$0_k$}),
+	\end{multline}
+	здесь $i = \bar{1, k}$, т.е. функция может быть непрерывной, либо по переменной $x_1$, либо $x_2$, ..., либо по $x_k$. В этом случае:
+	\begin{align}
+		||\Delta \vec{x}|| = \sqrt{0 + ... + 0 + (\Delta x_i)^2 + ... + 0} = \sqrt{(\Delta x_i)^2} = |\Delta x_i|
+		\label{eq:1.4.10}
+	\end{align}
+	Тогда определение (\ref{eq:1.4.6}) принимает вид и значит:
+	\begin{align}
+		(\forall \varepsilon > 0)(\exists \delta = \delta(\varepsilon) > 0)(\forall \vec{x} \in E \subset \mathbb{R}^k, \, |\Delta x_i| < \delta): \, |\Delta_i f(\vec{x}_0)| < \varepsilon
+		\label{eq:1.4.11}
+	\end{align}
+
+	Функция $y=f(\vec{x})$ называется \uline{непрерывной в точке $\vec{x}_0$ по переменной $x_i$}, если \uline{малым приращением этой переменной $\Delta x_i$}, соответствует \uline{малое частное приращение функции $\Delta_i f(\vec{x}_0)$}.
+\end{tbox}
+
+\begin{tbox}{Теорема и замечание}
+	\textbf{Теорема (без доказательства)} \\
+	Если функция $y=f(\vec{x})$ непрерывна в точке $\vec{x}_0$ по совокупности переменных, то она будет непрерывна и по каждой переменной в отдельности. Обратно утверждение не всегда верно.
+
+	\textbf{Замечание} \\
+	Если функция $y = f(\vec{x})$ непрерывна по совокупности переменных, то для нее будет выполняться все теоремы о непрерывности, доказанные для функции одной переменной.
+\end{tbox}
