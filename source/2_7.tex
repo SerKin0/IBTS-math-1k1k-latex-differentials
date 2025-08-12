@@ -1,0 +1,92 @@
+\subsection{Дифференциалы сложной функции} \label{part:2.6}
+
+\begin{tbox}{Дифференциал сложной функции}
+	Рассмотрим сложную функцию двух промежуточных аргументов $u$ и $v$ и двух независимых переменных $x$ и $y$ и вычислим дифференциал этой функции.
+	\begin{align*}		\label{eq:4.1}
+		z = f(u(x, y), v(x, y))
+	\end{align*}
+	Вспомним формулу дифференциала функции $z = z(x,y)$ независимых переменных $x$ и $y$.
+	\begin{align}
+		dz = \frac{\partial z}{\partial x} dx + \frac{\partial z}{\partial y} dy
+	\end{align}
+	Вычислим частные производные \(\frac{\partial z}{\partial x}\) и \(\frac{\partial z}{\partial y}\) для сложной функции:
+	\begin{align*}
+		\frac{\partial z}{\partial x} = \frac{\partial f}{\partial u} \times \frac{\partial u}{\partial x} + \frac{\partial f}{\partial v} \times \frac{\partial v}{\partial x}; \quad \frac{\partial z}{\partial y} = \frac{\partial f}{\partial u} \times \frac{\partial u}{\partial y} + \frac{\partial f}{\partial v} \times \frac{\partial v}{\partial y}
+	\end{align*}
+	и подставим в \cref{eq:4.1}.
+	\begin{align*}
+		dz = \left(\frac{\partial f}{\partial u} \times \frac{\partial u}{\partial x} + \frac{\partial f}{\partial v} \times \frac{\partial v}{\partial x}\right) dx + \left(\frac{\partial f}{\partial u} \times \frac{\partial u}{\partial y} + \frac{\partial f}{\partial v} \times \frac{\partial v}{\partial y}\right)dy
+	\end{align*}
+	Раскроем скобки и сгруппируем слагаемые при $\frac{\partial f}{\partial u}$ и $\frac{\partial f}{\partial v}$:
+	\begin{equation}	\label{eq:4.2}
+		\begin{split}
+			dz = \left(\frac{\partial f}{\partial u}  \frac{\partial u}{\partial x} dx + \frac{\partial f}{\partial u}  \frac{\partial u}{\partial y} dy \right) + \left(\frac{\partial f}{\partial v}  \frac{\partial v}{\partial x}dx + \frac{\partial f}{\partial v}  \frac{\partial v}{\partial y} dy\right) = \\
+			\frac{\partial f}{\partial u} \underbrace{\left(\frac{\partial u}{\partial x} dx + \frac{\partial u}{\partial y} dy\right)}_{du} + \frac{\partial f}{\partial v}  \underbrace{\left(\frac{\partial v}{\partial x} dx + \frac{\partial v}{\partial y} dy\right)}_{dv}
+		\end{split}
+	\end{equation}
+	Так как $u = u(x,y)$ и $v = v(x,y)$ - функции переменных $x$ и $y$, тогда из дифференциалы равны:
+	\begin{equation*}
+		du = \frac{\partial u}{\partial x} dx + \frac{\partial u}{\partial y} dy \quad \text{и} \quad dv = \frac{\partial v}{\partial x} dx + \frac{\partial v}{\partial y} dy
+	\end{equation*}
+	Из выражения \cref{eq:4.2} получаем окончательный вид дифференциал $dz$:
+	\begin{equation}	\label{eq:4.3}
+		\boxed{dz = \frac{\partial f}{\partial u} du + \frac{\partial f}{\partial v} dv}
+	\end{equation}
+\end{tbox}
+
+\begin{tbox}{Свойство инвариантности дифференциала}
+	Формула первого дифференциала имеют один и тот же вид, как для функции двух независимых переменных $z = z(x,y) = f(x,y)$, так и для сложной функции двух промежуточных аргументов $z = f(u,v)$. Это свойство первого дифференциала называется \textbf{свойством инвариантности или сохранения формы дифференциала}. \\
+
+	Отличие состоит только в том, что в выражении \cref{eq:4.1} $dx$ и $dy$ - это дифференциалы независимых переменных, т.е. $dx = \Delta x$ и $dy = \Delta y$ \textit{- const}. В формуле \cref{eq:4.3} $du$ и $dv$ - это дифференциалы независимых переменных, т.е. $dx = \Delta x$ - дифференциалы функций $u = u(x,y)$ и $v = v(x,y)$:
+	\[du = u_x' dx + u_y'dy \quad \text{и} \quad dv = v_x' dx + v_y'dy\]
+\end{tbox}
+
+\begin{tbox}{Дифференциал второго порядка}
+	Выведем формулу дифференциала второго порядка для сложной функции $z = f(u,v)$. По определению:
+	\begin{equation*}
+		d^2 z = d(dz) = d(\frac{\partial f}{\partial u} du + \frac{\partial f}{\partial v} dv)
+	\end{equation*}
+	Вычислим тот дифференциал, применяя правило суммы и произведения дифференциалов:
+	\begin{multline} \label{eq:4.4}
+		d^2 z = d\left(\frac{\partial f}{\partial u} du + \frac{\partial f}{\partial v} dv\right) = d\left(\frac{\partial f}{\partial u} du\right) + d\left(\frac{\partial f}{\partial v} dv\right) =\\=  d\left(\frac{\partial f}{\partial u}\right) du + \frac{\partial f}{\partial u} d\left(du\right) + d\left(\frac{\partial f}{\partial v}\right) dv + \frac{\partial f}{\partial v} d(dv)
+	\end{multline}
+
+	По определению $d(du) = d^2 u$ и $d(dv) = d^2 v$ - это дифференциалы 2-ого порядка от функций $u = u(x,y)$ и $v = v(x,y)$.
+
+	Дифференциалы $d\left(\frac{\partial f}{\partial u}\right)$ и $d\left(\frac{\partial f}{\partial v}\right)$ вычислим, применяя формулу \cref{eq:4.3}.
+	\begin{multline*}
+		d^2 z = \left(\frac{\partial^2 f}{\partial u^2} du + \frac{\partial^2 f}{\partial v \partial u} dv\right) du + \frac{\partial f}{\partial u} d^2 u + \left(\frac{\partial^2 f}{\partial u \partial v} du + \frac{\partial ^2 f}{\partial v^2}dv\right)dv + \frac{\partial f}{\partial v} d^2 v = \\
+		= \frac{\partial^2 f}{\partial u^2} du^2 + \frac{\partial^2 f}{\partial v \partial u} dv du + \frac{\partial^2 f}{\partial u \partial v} du dv + \frac{\partial^2 f}{\partial v^2} dv^2 + \frac{\partial f}{\partial u} d^2 u + \frac{\partial f}{\partial v} d^2 v = \\
+		= \frac{\partial^2 f}{\partial u^2} du^2 + 2 \frac{\partial^2 f}{\partial u \partial v} du dv + \frac{\partial^2 f}{\partial v^2} dv^2 + \frac{\partial f}{\partial u} d^2 u + \frac{\partial f}{\partial v} d^2 v
+	\end{multline*}
+
+	Дифференциал 2-ого порядка для сложной функции имеет вид:
+	\begin{equation} \label{eq:4.5}
+		\boxed{d^2 z = \frac{\partial^2 f}{\partial u^2} du^2 + 2 \frac{\partial^2 f}{\partial u \partial v} du dv + \frac{\partial^2 f}{\partial v^2} dv^2 + \frac{\partial f}{\partial u} d^2 u + \frac{\partial f}{\partial v} d^2 v}
+	\end{equation}
+\end{tbox}
+
+\begin{tbox}{Сравнение дифференциалов}
+	Формула $d^2 z$ для функции $z = f(x,y)$:
+	\begin{equation} \label{eq:4.6}
+		\boxed{d^2 z = \frac{\partial^2 f}{\partial x^2} dx^2 + 2 \frac{\partial^2 f}{\partial x \partial y} dx dy + \frac{\partial^2 f}{\partial y^2} dy^2}
+	\end{equation}
+
+	Сравнение формул \cref{eq:4.5,eq:4.6} показывает, что форма дифференциала второго порядка сложной функции отличается от случая независимых переменных. В этом случае говорят о нарушении инвариантности формы высших дифференциалов сложной функции и в этом случае нельзя вывести общую формулу вычисления дифференциалов высших порядков.
+\end{tbox}
+
+\begin{tbox}{Формулы}
+	\(z = f(x,y) \quad x, y - \text{независимые переменные}\);\\
+	\[dz = \frac{\partial u}{\partial x} dx + \frac{\partial u}{\partial y} dy\]
+	\[d^2 z = \frac{\partial f}{\partial x} dx^2 + 2 \frac{\partial^2 f}{\partial x \partial y} dxdy + \frac{\partial^2 f}{\partial y^2} dy\]
+	$z = f(u,v)$, $u = u(x,y)$, $v = v(x,y)$ - зависимые аргументы:
+	\[dz = \frac{\partial f}{\partial u} du + \frac{\partial f}{\partial v} dv\]
+	\[d^2 z = \frac{\partial^2 f}{\partial u^2} du^2 + 2 \frac{\partial^2 f}{\partial u \partial v} dudv + \frac{\partial^2 f}{\partial v^2} dv^2 + \frac{\partial f}{\partial u} d^2 u + \frac{\partial f}{\partial v} d^2 v\]
+
+	\begin{center}
+		\textbf{Частный случай:}
+	\end{center}
+	$z = f(u)$, $u = u(x,y)$ -- промежуточный аргумент:
+	\[dz = \frac{df}{du}du = f_u' du\]
+	\[d^2 z = \frac{d^2 f}{du^2} du^2 + \frac{df}{du} d^2 u = f_{uu}'' du^2 + f_u' d^2 u\]
+\end{tbox}

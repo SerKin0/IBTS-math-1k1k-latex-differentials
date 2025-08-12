@@ -1,0 +1,117 @@
+\subsection{Дифференцируемые функции} \label{sec:2.2}
+
+\begin{tbox}{Определение дифференцируемой функции $y = f(x)$ в точке $x_0$}
+	Функция $y = f(x)$ называется \textbf{дифференцируемой в точке} \( x_0 \), если её приращение в этой точке представимо в виде:
+	\begin{align} \label{eq:2.2.1}
+		\Delta f(x_0) = f(x_0 + \Delta x) - f(x_0) = A \cdot \Delta x + \alpha(\Delta x) \to 0
+	\end{align}
+	где $A = const$, $\alpha(\Delta x)$ - бесконечно малая при \(\Delta x \to 0\), т.е. $\alpha(\Delta x) \cdot \Delta x$ -- величина бесконечно малая, более высокого порядка малости, чем $\Delta x$.
+\end{tbox}
+
+\begin{tbox}{Необходимое и достаточное условие дифференцируемости функции одной переменной}
+	Существование конечной производной в точке $x_0$.\\
+
+	Было доказано, что $A = f^{\prime}(x_0)$ и определение дифференцируемой функции можно представить следующим образом:
+	\begin{align} \label{eq:2.2.2}
+		\Delta f(x_0) = f^{\prime}(x_0) \cdot \Delta x + \alpha(\Delta x) \cdot \Delta x \qquad \alpha (\Delta x) \cdot \Delta x = O(\Delta x)
+	\end{align}
+\end{tbox}
+
+\begin{tbox}{Определение функции многих переменных $y = f(\vec{x})$}
+	Функция $\boxed{y = f(\vec{x})} = f(x_1, x_2, ..., x_k)$, где $\vec{x} \in \mathbb{E} \subset \mathbb{R}^k$  называется дифференцируемой в точке $\boxed{\vec{x}_0} = (x_{\text{$0_1$}}, x_{\text{$0_2$}}, ..., x_{\text{$0_k$}}) \in \mathbb{E} \subset \mathbb{R}^k$, если ее полное приращение:
+	\begin{multline*}
+		\Delta f(\vec{x}_0) = f(\vec{x}_0 + \Delta \vec{x}) - f(\vec{x}_0) =\\= f(x_{\text{$0_1$}} + \Delta x_1, x_{\text{$0_2$}} + \Delta x_2, ..., x_{\text{$0_k$}} + \Delta x_k) - f(x_{\text{$0_1$}}, x_{\text{$0_2$}}, ..., x_{\text{$0_k$}})
+	\end{multline*}
+	Также можно представить в виде:
+	\begin{align} \label{eq:2.2.3}
+		\boxed{\Delta f(\vec{x}_0) = \vec{A} \cdot \Delta \vec{x} + \vec{\alpha}(\Delta \vec{x}) \cdot \Delta \vec{x}}
+	\end{align}
+	\begin{itemize}
+		\item $\vec{A} = (A_1, A_2, ..., A_k)$ -- постоянный вектор;
+		\item $\Delta \vec{x} = (\Delta x_1, \Delta x_2, \dots, \Delta x_k)$ -- вектор приращений;
+		\item $\vec{\alpha}(\Delta \vec{x}) = (\alpha_1(\Delta \vec{x}), \alpha_2(\Delta \vec{x}), ..., \alpha_k(\Delta \vec{x}))$, причем $\alpha_1(\Delta \vec{x}) \to \vec{0}$, при $\Delta \vec{x} \to \vec{0}$. ($\vec{0}$ -- ноль вектор);
+	\end{itemize}
+\end{tbox}
+Распишем в определении \ref{eq:2.2.3} скалярное произведение:
+\begin{gather*}
+	\vec{A} \cdot \Delta \vec{x} = A_1 \Delta x_1 + A_2 \Delta x_2 + \dots + A_k \Delta x_k = \sum_{i=1}^k A_i \Delta x_i \\
+	\vec{\alpha}(\Delta \vec{x}) \cdot \Delta \vec{x} = \alpha_1 (\Delta \vec{x}) \cdot \Delta x_1 + \alpha_2 (\Delta \vec{x}) \cdot \Delta x_2 + ... + \alpha_k (\Delta \vec{x}) \cdot \Delta x_k = \sum_{i = 1}^{k} \alpha_i (\Delta x) \Delta x_i
+\end{gather*}
+
+Тогда получаем определение дифференцируемой функции в \textbf{координатной форме}:
+\begin{align} \label{eq:2.2.4}
+	\boxed{\Delta f(\vec{x}_0) = \sum_{i=1}^k A_i \cdot \Delta x_i + \sum_{i=1}^k \alpha_i (\Delta \vec{x}) \cdot x_i}
+\end{align}
+
+\begin{tbox}{Необходимые условия дифференцируемости}
+	Если функция \( y = f(\vec{x}) \) дифференцируема в точке \( \vec{x}_0 \), то она имеет в этой точке частные производные.\\
+
+	\textbf{Доказательство:} Запишем определение дифференцируемой функции в координатной форме \ref{eq:2.2.3}.
+	\begin{align*}
+		\Delta f(\vec{x}_0) = \sum_{i=1}^k A_i \Delta x_i + \sum_{i=1}^{k} \alpha_i (\Delta \vec{x}) \cdot \vec{x}_i
+	\end{align*}
+	Зададим вектор приращений $\Delta \vec{x}$ в виде: $\Delta \vec{x} = (0, ..., 0, \Delta x_i, 0, ..., 0)$.
+	Тогда полное приращение в записанной формуле будет совпадение с частным приращением в точке $\vec{x}_0$ по переменой $x_i$ и в сумме останется только два слагаемых:
+	\begin{gather*}
+		\Delta f(\vec{x}_0) = \Delta_i f(\vec{x}_0) = A_i \cdot \Delta x_i + \alpha_i(\Delta \vec{x}) \cdot x_i \qquad \text{(поделим обе части на $\Delta x_i$)}\\
+		\frac{\Delta_i f(\vec{x}_0)}{\Delta x_i} = \frac{A_i \cdot \Delta x_i + \alpha_i (\Delta \vec{x}) \cdot \Delta x_i}{\Delta x_i} = A_i + \alpha_i(\Delta \vec{x}) \quad |_{\lim_{\Delta x_i \to 0}}\\
+		\lim_{\Delta x_i \to 0} \frac{\Delta_i f(\vec{x}_0)}{\Delta x_i} = \lim_{\Delta x_i \to 0} \left(A_i + \alpha_i(\Delta \vec{x})\right) = A_i + \lim_{\Delta x_i \to 0} \alpha_i(\Delta \vec{x}) = A_i
+	\end{gather*}
+	С другой стороны: $\displaystyle A_i = \lim_{\Delta x_i \to 0} \frac{\Delta_i f(\vec{x}_0)}{\Delta x_i} = \frac{\partial f(\vec{x}_0)}{\partial x_i} \quad \Rightarrow \quad \boxed{A_i = \frac{\partial f(\vec{x}_0)}{\partial x_i}} \quad (i = 1,2,...,k)$.\\
+
+	Тогда получается, что координаты постоянного вектора $\vec{A}$ равны частным производным функции $f(\vec{x})$ в точке $\vec{x}_0$ по всем независимым переменным.
+	\begin{align}
+		\vec{A} = (\frac{\partial f(\vec{x}_0)}{\partial x_1}, \frac{\partial f(\vec{x}_0)}{\partial x_2}, ..., \frac{\partial f(\vec{x}_0)}{\partial x_k})
+	\end{align}
+
+	Вектор, координатами которого являются частные производные, называется градиентом функции в точке $\vec{x}_0$ и обозначается $\grad f(\vec{x}_0)$.
+
+	\begin{align*}
+		\vec{A} = \grad f(\vec{x}_0) = \left(\frac{\partial f(\vec{x}_0)}{\partial x_1}, \frac{\partial f(\vec{x}_0)}{\partial x_2}, ..., \frac{\partial f(\vec{x}_0)}{\partial x_k}\right)
+	\end{align*}
+	Тогда из определений \cref{eq:2.2.2,eq:2.2.3} получаем еще одно определение дифференцируемой функции.
+	\begin{align}
+		\Delta f(\vec{x}_0) = \grad f(\vec{x}_0) \cdot \Delta \vec{x} + \vec{\alpha} (\Delta \vec{x}) \cdot \Delta \vec{x}
+		\label{eq:2.2.5}
+	\end{align}
+	\vspace{-2em}
+	\begin{align}
+		\Delta f(\vec{x}_0) = \sum_{i=1}^{k} \frac{\partial f(\vec{x}_0)}{\partial x_i} \Delta x_i + \sum_{i=1}^{k} \alpha_i (\Delta \vec{x}) \cdot \Delta x_i
+		\label{eq:2.2.6}
+	\end{align}
+\end{tbox}
+
+\begin{tbox}{Достаточное условие дифференцируемости}
+	Если функция $y = f(\vec{x})$ имеет частные производные по всех переменным в окрестности точки $\vec{x}_0 \in \mathbb{E} \subset \mathbb{R}^k$, причем частные производные:
+	\begin{align*}
+		\left(\frac{\partial f(\vec{x}_0)}{\partial x_1}, \frac{\partial f(\vec{x}_0)}{\partial x_2}, ..., \frac{\partial f(\vec{x}_0)}{\partial x_k}\right) \text{-- непрерывна в точке $\vec{x}_0$,}
+	\end{align*}
+	то функция $y = f(\vec{x})$ дифференцируема в точке $\vec{x}_0$. (Без доказательства)
+\end{tbox}
+
+Рассмотрим частный случай $k = 2$ и из определений \cref{eq:2.2.5,eq:2.2.6} запишем определение дифференцируемой функции 2-х переменных в точке $\vec{x}_0 = (x_{\text{$0_1$}}, x_{\text{$0_2$}})$.
+\[y = f(x_1, x_2), \qquad \grad f(\vec{x}_0) = \left(\frac{\partial f(\vec{x}_0)}{\partial x_1}, \frac{\partial f(\vec{x}_0)}{\partial x_2}\right)\]
+\[\Delta \vec{x} = (\Delta x_1, \Delta x_2), \qquad \vec{\alpha}(\Delta \vec{x}) = \left(\alpha_1(\Delta x_1, \Delta x_2), \alpha_2(\Delta x_1, \Delta x_2)\right)\]
+\begin{multline*}
+	\Delta f(\vec{x}_0) = \grad f(\vec{x}_0) \cdot \Delta \vec{x} + \vec{\alpha}(\Delta \vec{x}) \cdot \Delta \vec{x} =\\= \frac{\partial f(\vec{x}_0)}{\partial x_1} \Delta x_1 + \frac{\partial f(\vec{x}_0)}{\partial x_2} \Delta x_2 + \alpha_1(\Delta x_1 \Delta x_2) \Delta x_1 + \alpha_2 (\Delta x_1 \Delta x_2) \Delta x_2
+\end{multline*}
+
+Рассмотрим функцию $z = f(x,y)$, тогда в полученном определении заменим $x_1$ на $x$, а $x_2$ на $y$, $\Delta \vec{x} = (\Delta x, \Delta y)$, $\vec{\alpha}(\Delta \vec{x}) = (\alpha_1(\Delta x, \Delta y), \alpha_2(\Delta x, \Delta y))$.\\
+
+Получаем определение \textbf{дифференцируемой функции для двух переменных}.
+\begin{align} \label{eq:2.2.7}
+	\boxed{\Delta z(M_0) = \frac{\partial f(M_0)}{\partial x} \Delta x + \frac{\partial f(M_0)}{\partial y} \Delta y + \alpha_1(\Delta x, \Delta y) \Delta x + \alpha_2 (\Delta x, \Delta y) \Delta y}
+\end{align}
+
+\begin{tbox}{Теорема о связи между непрерывностью и дифференцированностью функции многих переменных}
+	Если функции $y = f(\vec{x})$ дифференцируема в точке $\vec{x}_0 \in \mathbb{E} \subset \mathbb{R}^k$, то она непрерывна в этой точке.\\
+
+	\textbf{Доказательство:}  Запишем определение дифференцируемой функции в форме \cref{eq:2.2.3}:
+	\[\Delta f(\vec{x}_0) = \vec{A} \cdot \Delta \vec{x} + \vec{\alpha}(\Delta \vec{x}) \cdot \Delta \vec{x}\], здесь $\vec{\alpha}(\Delta \vec{x}) \to \vec{0}$, при $\Delta \vec{x} \to \vec{0}$. Перейдем к пределу при $\Delta \vec{x} \to \vec{0}$.
+	\begin{align*}
+		\lim_{\Delta \vec{x} \to \vec{0}} \Delta f(\vec{x}_0) = \lim_{\Delta \vec{x} \to \vec{0}} \left(\vec{A} \cdot \Delta \vec{x} + \vec{\alpha}(\Delta \vec{x}) \cdot \Delta \vec{x}\right) = 0
+	\end{align*}
+	т.е. малым приращениям аргументов ($\Delta \vec{x} = (\Delta x_1, \Delta x_2, ..., \Delta x_k) \to \vec{0}$) соответствует малое полное приращение функции. Это означает, что функция $y = f(\vec{x})$ непрерывна в точке $\vec{x}_0$ по совокупности переменных.\\
+
+	\textbf{Замечание:} Обратное утверждение не всегда верно, по аналогии с функцией $y = |x|$ в точке $x = 0$. Функция непрерывна при $x=0$, но в точке не имеет производной.
+\end{tbox}

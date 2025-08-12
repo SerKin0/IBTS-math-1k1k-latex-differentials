@@ -1,0 +1,82 @@
+
+\subsection{Производные второго порядка сложной функции}
+
+\begin{tbox}{Производные второго порядка сложной функции}
+	Выведем формулы производных второго порядка сложной функции двух промежуточных аргументов $u$ и $v$ и двух независимых переменных $x$ и $y$: \(z = f(u(x,y), v(x,y))\).
+	\begin{align} \label{eq:2.5.15}
+		z^{\prime}_x = f_u^{\prime}(u, v) u^{\prime}_x(x,y) + f^{\prime}_v(u, v)v^{\prime}_x(x,y)
+	\end{align}
+
+	В формуле (\ref{eq:2.5.15}), выведенной в \cref{sec:1.5} частные производные по промежуточным аргументам $f_u^{\prime}(u, v)$ и $f_v^{\prime}(u, v)$ являются функциями, зависящими от $u$ и $v$. Поэтому в (\ref{eq:2.5.15}) введем обозначения:
+	\begin{align} \label{eq:2.5.16}
+		g(u, v) = f^{\prime}_u(u,v) \quad \text{и} \quad h(u, v) = f^{\prime}_v(u,v)
+	\end{align}
+	и перепишем выражение (\ref{eq:2.5.15}) в виде:
+	\begin{align} \label{eq:2.5.17}
+		z_x^{\prime} = g(u,v) \cdot u^{\prime}_x(x,y) + h(u,v) \cdot v_x^{\prime}(x,y) \quad |\textstyle\frac{\partial}{\partial x}
+	\end{align}
+	и вычислим частную производную по $x$.
+	\begin{gather*}
+		z^{\prime\prime}_x = (g(u,v) \cdot u_x^{\prime}(x,y) + h(u,v) \cdot v_x^{\prime}(x,y))_x^{\prime} =\\
+		(g(u, v))^{\prime}_x \cdot u_x^{\prime}(x, y) + g(u,v) \cdot (u_x^{\prime}(x,y))^{\prime}_x + \\ + (h(u,v))^{\prime}_x \cdot v_{x}^{\prime}(x, y) + h(u, v) \cdot (v_x^{\prime}(x, y))^{\prime}_x = \\ =
+		(g(u,v))^{\prime}_x \cdot u_x^{\prime}(x,y) + g(u, v) \cdot u_{xx}^{\prime\prime}(x,y) + (h(u,v))_x^{\prime} \cdot v_x^{\prime}(x,y) + h(u, v) \cdot v_{xx}^{\prime\prime}(x,y)
+	\end{gather*}
+
+	Вычислим производные сложных функций $g(u, v)$ и $h(u, v)$ по $x$, используя формулу (\ref{eq:2.5.15}):
+	\begin{align*}
+		\text{Подставим в формулу $z_{xx}^{\prime\prime} \quad$}
+		\begin{cases}
+			(g(u,v))_x^{\prime} = g_u^{\prime}(u, v) \cdot u_x^{\prime}(x, y) + g_v^{\prime}(u, v) \cdot v_x^{\prime}(x,y)\\
+			(h(u,v))_x^{\prime} = h_u^{\prime}(u, v) \cdot u_x^{\prime}(x, y) + h_v^{\prime}(u, v) \cdot v_x^{\prime}(x,y)
+		\end{cases}
+	\end{align*}
+	\begin{gather*}
+		z_{xx}'' = \big(g_u'(u,v)u_x'(x,y) + g_x'(u, v) v_x'(x,y)\big) \cdot u_x'(x,y) + g(u,v) u_{xx}''(x,y) + \\
+		+ \big(h_u'(u,v) u_x'(x,y) + h_x'(u,v) v_x'(x,y)\big) \cdot v_x'(x,y) + h(u,v) \cdot v_{xx}''(x,y) = \\
+		\text{подставляем выражения для $g(u,v)$ и $h(u,v)$ из (\ref{eq:2.5.16})}\\
+		= \big((f_u')_u' u_x' + (f_u')_v' v_x'\big) \cdot u_x' + f_u' u_{xx}'' + \big((f_v')u_x' + (f_v')_u' u_x'\big) \cdot v_x' + f_v' v_{xx}'' = \\
+		= f_{uu}'' u_x'^2 + 2 f_{uv}'' u_x' v_x' + f_{vv}'' v_x'^2 + f_u' u_{xx}'' + f_v' v_{xx}''.
+	\end{gather*}
+	\begin{align} \label{eq:2.5.19}
+		\boxed{z_{xx}'' = f_{uu}'' u_x'^2 + 2 f_{uv}'' u_x' v_x' + f_{vv}'' v_x'^2 + f_u' u_{xx}'' + f_v' v_{xx}''}
+	\end{align}
+\end{tbox}
+
+\begin{tbox}{Производная второго порядка по $y$}
+	Так как частная производная сложной функции первого порядка по $y$ имеет аналогичный вид выражению (\ref{eq:2.5.15}). \(z_y' = f_u' u_y' + f_v' v_y'\), то частную производную второго порядка по $y$, запишем аналогично (\ref{eq:2.5.19}), заменив $x$ на $y$.
+	\begin{align} \label{eq:2.5.20}
+		\boxed{z_{yy}'' = f_{uu}'' u_y'^2 + 2 f_{uv}'' u_y' v_y' + f_{vv}'' v_y'^2 + f_u' u_{yy}'' + f_v' v_{yy}''}
+	\end{align}
+\end{tbox}
+
+\begin{tbox}{Смешанная производная $z''_{xy}$}
+	Выведем смешанную производную $z''_{xy}$. Для этого выражение (\ref{eq:2.5.15}) для $z_x^{\prime}$ перепишем с учетом (\ref{eq:2.5.16}).
+	\begin{gather*}
+		z'_x = g(u,v) u'_x + h(u,v) v'_x, \quad \frac{\partial}{\partial y}\\
+		z''_{xy} = \big(g(u,v) u'_x(x,y) + h(u,v) v'_x(x,y)\big)'_y =\\
+		= \big(g(u,v)\big)'_y u'_x(x,y) + \left(u_x^{\prime}(x,y)\right)^{\prime}_y g(u, v) + \big(h(u,v)\big)'_y v'_x(x,y) + h(u, v) \left(v_x^{\prime}(x,y)\right)^{\prime}_y.
+	\end{gather*}
+
+	Распишем производные по $y$ от сложенных функций $g(u,v)$ и $h(u,v)$:
+	\begin{gather*}
+		(g(u,v))'_y = g'_u(u,v) u'_y(x,y) + g'_v(u,v) v'_y(x,y),\\
+		(h(u,v))'_y = h'_u(u,v) u'_y(x,y) + h'_v(u,v) v'_y(x,y).
+	\end{gather*}
+
+	Подставляем в $z''_{xy}$:
+	\begin{gather*}
+		z''_xy = (g_u'(u,v) u_y'(x,y)+g_v'(u,v)v_y'(x,y)) \cdot u_x'(x, y) + g(u, v) u_{xy}''(x,y) + \\ +(h'_u(u, v) u_y'(x,y) + h_v'(u, v) v_y'(x,y)) \cdot v_x'(x,y) + h(u, v) v_{xy}''(x,y) = \\
+		=(g_u' u_y' + g_v' v_y') u_x' + g(u, v) u_{xy}'' + (h_u' u_y' + h_v' v_y') v_x' + h(u, v) \cdot v_{xy}'' = ...
+	\end{gather*}
+
+	Подставим обозначения (\ref{eq:2.5.16}):
+	\begin{gather*}
+		... = \left((f_u')_u' u_y' + (f_u')_v' v_y'\right) u_x' + f_u' u_{xy}'' + \left((f_v')_u' u_y' + (f_v')_v' v_y'\right) v_x' + f_v' u_{xy}'' = \\
+		= (f_{uu}'' u_y' + f_{uv}'' v_y') u_x' + f_u'' u_{xy}'' + (f_{uv}'' u_y' + f_{vv}'' v_y') v_x' + f_v' v_{xy}'' = \\
+		= f_{uu}'' u_y' u_x' + f_{uv}'' v_y' u_x' + f_u'' u_{xy}'' + f_{uv}'' u_y' v_x' + f_{vv}'' v_y' v_x' + f_v' v_{xy}'' = \\
+		= f_{uu}'' u_x' u_y' + f_{uv}''(u_x' v_y' + u_y' v_x') + f_{vv}'' v_x' v_y' + f_u' u_{xy}'' + f_v' v_{xy}''
+	\end{gather*}
+	\begin{align} \label{eq:2.5.18}
+		\boxed{z''_xy = f_{uu}'' u_x' u_y' + f_{uv}''(u_x' v_y' + u_y' v_x') + f_{vv}'' v_x' v_y' + f_u' u_{xy}'' + f_v' v_{xy}''}
+	\end{align}
+\end{tbox}

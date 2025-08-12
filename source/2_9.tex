@@ -1,0 +1,57 @@
+\subsection{Дифференцирование неявно заданной функции} \label{part:2.8}
+
+Рассмотрим неявно заданную функцию $z = z(x,y)$ двух независимых переменных.\\
+
+\textbf{Определение:} Уравнение (\ref{eq:4.7}) определяет функцию $z = z(x,y)$ как неявно заданную функцию двух переменных, если при подстановке этой функции в уравнение (\ref{eq:4.7}) оно становится тождеством:
+\begin{equation} \label{eq:4.7}
+	F(x,y,z) = 0
+\end{equation}
+\begin{equation} \label{eq:4.8}
+	F(x,y,z(x,y)) \equiv 0
+\end{equation}
+Неявно заданную функцию из уравнения (\ref{eq:4.7}) можно найти при выполнении условий следующей теоремы.
+
+\begin{tbox}{Теорема о существовании и дифференцируемости неявно заданной функции (без доказательства)}
+	Пусть функция $F(x,y,z)$ и все ее частные производные $\frac{\partial F}{\partial x}$, $\frac{\partial F}{\partial y}$ и $\frac{\partial F}{\partial z}$ определены и непрерывны в некоторой окрестности точки $M_0(x_0,y_0, z_0)$, причем $F(M_0) = F(x_0, y_0, z_0) = 0$, а частная производной $\frac{\partial F(M_0)}{\partial z} \neq 0$.\\
+
+	Тогда $\exists$ окрестность точки $M_0$ такая, что уравнение \eqref{eq:4.7} определяет неявно заданную функцию $z = z(x,y)$, непрерывную и дифференцируемую в точке $(x_0, y_0)$, причем $z_0 = z(x_0, y_0)$.
+\end{tbox}
+
+Для нахождения частных производных подставляем в уравнение (\ref{eq:4.7}) функцию $z = z(x,y)$ и получаем тождество (\ref{eq:4.8}), которое дифференцируем по независимым переменных $x$ и $y$.
+\begin{gather*}
+	F(x,y,z(x,y)) \equiv 0 \quad | \frac{\partial }{\partial x}\\
+	\frac{\partial F}{\partial x} + \frac{\partial F}{\partial z} \cdot \frac{\partial z}{\partial x} = 0, \text{ откуда находим $\frac{\partial z}{\partial x}$}
+\end{gather*}
+\begin{equation} \label{eq:4.9}
+	-\frac{\partial F}{\partial x} = \frac{\partial F}{\partial z} \cdot \frac{\partial z}{\partial x} \quad \Rightarrow \quad \boxed{\frac{\partial z}{\partial x} = -\frac{\frac{\partial F}{\partial x}}{\frac{\partial F}{\partial z}}}
+\end{equation}
+Аналогично, дифференцируя тождество (\ref{eq:4.8}) по $y$, найдем $\frac{\partial z}{\partial y}$:
+\begin{equation} \label{eq:4.10}
+	\frac{\partial F}{\partial y} + \frac{\partial F}{\partial z} \cdot \frac{\partial z}{\partial y} = 0 \quad \Rightarrow \quad \boxed{\frac{\partial z}{\partial y} = - \frac{\frac{\partial F}{\partial y}}{\frac{\partial F}{\partial z}}}
+\end{equation}
+Для нахождения частных производных неявно заданной функции формулы (\ref{eq:4.9}) и (\ref{eq:4.10}) применять не будем а для каждого примера будем проводить данную процедуру.
+
+\subsubsection*{Пример}
+Найти $\frac{\partial z}{\partial x}$, $\frac{\partial z}{\partial y}$, если $z^3 - xz + y = 0$.
+\begin{gather*}
+	F(x,y,z) = z^3 - xz + y\\
+	z^3(x,y) - xz(x,y) + y = 0 \quad \Big|\frac{\partial}{\partial x} \quad \Big|\frac{\partial}{\partial y}\\
+	3z^2(x,y) z_x' - z(x,y) - x z_x' = 0 \quad (3z^2 - x) z_x' = 0\\
+	z_x' = \frac{z}{3z^2 - x} \quad \text{($3z^2 - x \neq 0$, т.к. по условию теоремы $\frac{\partial F}{\partial z} = 3x^2 - x \neq 0$)}\\
+	\begin{cases}
+		3z^2(x,y) z_y' - xz_y' + 1 = 0\\
+		(3z^2 - x)z_y' = -1
+	\end{cases}
+	\Rightarrow\quad z_y' = -\frac{1}{3z^2 - x}
+\end{gather*}
+Для нахождения частной производной 2-ого порядка дифференцируем найденные производные:
+\begin{align*}
+	&\boxed{z_x'} = \frac{z(x,y)}{3z^2(x,y) - x} \quad \Big| \frac{\partial }{\partial x}\\
+	&\boxed{z_{xx}''} = \frac{z_x'(3z^2 - x) - z(6z \cdot z_x' - 1)}{(3z^2 - x)^2} = \left[\text{подставляем $z_x'$}\right] =\\
+	&= \frac{\frac{z}{3z^2 -x} \cdot (3z^2 - x) - 6z^2 \cdot \frac{z}{3z^2 - x} + z}{(3z^2 - x)^2} = \\
+	&= \frac{2z - \frac{6z^3}{3z^2 - x}}{(3z^2 - x)^2} = \frac{2z\left(\frac{3z^2 - x - 3z^2}{3z^2 - x}\right)}{(3z^2 - x)^2} = -\frac{2xz}{(3z^2 - x)^3}\\
+	&\boxed{z_y'} = -\frac{1}{3z^2(x,y) - x} \quad \Big|\frac{\partial}{\partial y} \quad \Big| \frac{\partial}{\partial x} \\
+	&\boxed{z_{yy}''} = \frac{1}{(3z^2 - x)^2} \cdot (3z^2 - x)_y' = \frac{6z \cdot x_y'}{(3z^2 - x)^2} = \frac{6z \cdot \left(-\frac{1}{3z^2 - x}\right)}{(3z^2 - x)^2} = -\frac{6z}{(3z^2 - x)^3}\\
+	&\boxed{z_{yx}''} = \frac{1}{(3z^2 - x)^2} \cdot (3z^2 - x)_x' = \frac{6z \cdot z_x' - 1}{(3z^2 - x)^2} =\\
+	&= \frac{\frac{6z^2 - (3z^2 - x)}{3z^2 - x}}{(3z^2 - x)^2} = \frac{6z^2 - 3z^2 + x}{(3z^2 - x)^3} = \frac{3z^2 + x}{(3z^2 - x)^3}
+\end{align*}

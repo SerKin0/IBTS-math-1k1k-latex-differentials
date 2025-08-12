@@ -1,13 +1,26 @@
-\documentclass[10pt]{extarticle}
+\documentclass[9pt]{article}
 
 \usepackage{bookstyle}
-\numberwithin{equation}{subsection} % Привязываем к подразделу
-\numberwithin{subsection}{section}  % Чтобы subsection учитывал section
+\usepackage{extsizes}
 
-\makeatletter
-\def\@evenfoot{\hfil Страница \thepage \hfil} % Для четных страниц
-\def\@oddfoot{\hfil Страница \thepage \hfil}  % Для нечетных страниц
-\makeatother
+\pagestyle{fancy}
+\fancyhf{} % очищаем все колонтитулы
+\renewcommand{\headrulewidth}{0.4pt} % толщина линии под колонтитулом
+\renewcommand{\footrulewidth}{0pt}   % убираем линию над нижним колонтитулом
+
+\fancyhead[R]{\small\itshape\rightmark} % подраздел справа
+
+% Настройка нижнего колонтитула
+\fancyfoot[C]{\small Страница \thepage} % номер страницы по центру
+
+% Убираем колонтитулы на пустых страницах
+\fancypagestyle{plain}{%
+	\fancyhf{}
+	\renewcommand{\headrulewidth}{0pt}
+	\fancyfoot[C]{\small\thepage}
+}
+
+\graphicspath{{./image/}} % Директория папки с фотографиями
 
 \begin{document}
 	\include{source/title}
@@ -15,8 +28,21 @@
 	\include{source/opening}
 
 	\section{Основные понятия теории пределов и непрерывности функций многих переменных}
-	\input{source/1_1.tex}
-	\input{source/1_2.tex}
-	\input{source/1_3.tex}
-	\input{source/1_4.tex}
+	\input{source/1_1}
+	\input{source/1_2}
+	\input{source/1_3}
+	\input{source/1_4}
+
+	\newpage
+	\section{Дифференцирование функций многих переменных}
+	\input{source/2_1}
+	\input{source/2_2}
+	\input{source/2_3}
+	\input{source/2_4}
+	\input{source/2_5}
+	\input{source/2_6}
+	\input{source/2_7}
+	\input{source/2_8}
+	\input{source/2_9}
+%	\input{source/2_10}
 \end{document}

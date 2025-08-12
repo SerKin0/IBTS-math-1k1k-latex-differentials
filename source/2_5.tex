@@ -1,0 +1,142 @@
+\subsection{Производные и дифференциалы высших порядков функции многих переменных} \label{sec:2.5}
+
+\begin{tbox}{Частные производные 2 и 3 порядков}
+	Пусть $y = f(x_1, x_2, \dots, x_k)$ имеет частные производные 1-го порядка по всем независимым переменным:
+	\begin{align} \label{eq:2.5.1}
+		\frac{\partial f}{\partial x_1}, \frac{\partial f}{\partial x_2}, \dots, \frac{\partial f}{\partial x_k}.
+	\end{align}
+
+	У каждой из таких производных могут существовать частные производные 1-го порядка по всем независимым переменным, которые называются \textbf{частными производными 2-го порядка}:
+	\begin{align} \label{eq:2.5.2}
+		\frac{\partial}{\partial x_j} \left( \frac{\partial f}{\partial x_i} \right) = \frac{\partial^2 f}{\partial x_i^2} = f^{\prime\prime}_{x_i x_i} = f^{\prime\prime}_{x_i^2}, \quad (i = 1, \dots, k).
+	\end{align}
+
+	Аналогичным образом определяются \textbf{частные производные 3-го порядка}:
+	\begin{align}\label{eq:2.5.3}
+		\frac{\partial}{\partial x_i} \left( \frac{\partial^2 f}{\partial x_i^2} \right) = \frac{\partial^3 f}{\partial x_i^3} = f^{\prime\prime\prime}_{x_i x_i x_i} = f^{\prime\prime\prime}_{x_i^3} \quad (i = 1,...,k)
+	\end{align}
+\end{tbox}
+
+\begin{tbox}{Смешанная частная производная 2 и 3 порядков}
+	Частные производные, взятые по разным независимым переменным, называются \textbf{смешанными частными производными 2-го порядка}:
+
+	\begin{align} \label{eq:2.5.4}
+		\frac{\partial}{\partial x_j} \left(\frac{\partial f}{\partial x_i}\right) = \frac{\partial^2 f}{\partial x_j x_i} = f^{\prime\prime}_{x_i x_j} (i \neq j, \, i = 1,...,k, \, j = 1,...,k)
+	\end{align}
+
+	\textbf{Смешанные частные производные 3-го порядка} вычисляются по двум независимым переменным, либо по трем и т.д. Таким образом, можно получать частные производные любого порядка.
+	\begin{equation}\label{eq:2.5.5}
+		\begin{cases}
+			\displaystyle \frac{\partial}{\partial x_j} \left( \frac{\partial^2 f}{\partial x_i^2} \right) = \frac{\partial^3 f}{\partial x_i^2 \partial x_j}, \quad f^{(3)}_{x_i x_i x_j}, \quad &(i \neq j, \, i = 1,...,k, \, j = 1,...,k) \\
+			\displaystyle \frac{\partial}{\partial x_n} \left( \frac{\partial^2 f}{\partial x_i \partial x_j} \right) = \frac{\partial^3 f}{\partial x_n \partial x_i \partial x_j} = f^{\prime\prime\prime}_{x_j x_i x_n}, &(i \neq j \neq n, \, i, j, n = 1,...,k)
+		\end{cases}
+	\end{equation}
+\end{tbox}
+
+\begin{tbox}{Теорема о равенстве смешанных производных}
+	Пусть функция \(y = f(\vec{x})\) $n$ --- раз дифференцируема в точке \(\vec{x}_0 \in E \subset \mathbb{R}\) в этой точке значение любой смешанной частной производной не зависит от порядка, в котором проводится последовательнее дифференцирование. (без доказательства)
+\end{tbox}
+
+\begin{tbox}{Пример равенства смешанных производных}
+	\textbf{Пример:} $z = f(x, y)$
+
+	\(z_{xy} = z_{yx}\) -- смешанные частные производные 2 порядка.
+
+	\(z_{xxy} = z_{xyx} = z_{yxx}, \quad z_{xyy} = z_{yxy} = z_{yyx}\) -- смешанные частные производные 3 порядка.
+\end{tbox}
+
+\begin{tbox}{Дифференциалы высших порядков}
+	Пусть функция $y = f(\vec{x}) = f(x_1, x_2, \dots, x_k)$ дифференцируема, и её первый дифференциал равен:
+	\begin{align}\label{eq:2.5.6}
+		dy = \frac{\partial f(\vec{x})}{\partial x_1} dx_1 + \frac{\partial f(\vec{x})}{\partial x_2} dx_2 + \dots + \frac{\partial f(\vec{x})}{\partial x_k} dx_k.
+	\end{align}
+
+	Тогда:
+	\begin{gather*}
+		d(dy) = d^2 y, \quad \text{дифференциал 2-го порядка,}\\
+		d(d^2 y) = d^3 y, \quad \text{дифференциал 3-го порядка,}\\
+		\cdots\\
+		d(d^{n-1} y) = d^n y, \quad \text{дифференциал $n$-го порядка.}
+	\end{gather*}
+
+	В случае независимых переменных можно вывести общую \textbf{формулу для дифференциалов $n$-го порядка}. Для частного случая, функции двух переменных $z = f(x, y)$:
+	\begin{align} \label{eq:2.5.7}
+		dz = \frac{\partial f}{\partial x} dx + \frac{\partial f}{\partial y} dy, \quad\text{где $dx = \Delta x$, $dy = \Delta y$}
+	\end{align}
+\end{tbox}
+
+\begin{tbox}{Дифференциальные операторы}
+	Рассмотрим дифференциалы операторы $\frac{\partial}{\partial x}, \frac{\partial}{\partial y}$, определяющие частные производные. Дифференциальные операторы \uline{всегда действуют} на функцию, перед которой они стоят.
+	\begin{align} \label{eq:2.5.8}
+		\frac{\partial}{\partial x} \cdot f = \frac{\partial f}{\partial x} \qquad \frac{\partial}{\partial y} \cdot f = \frac{\partial f}{\partial y}
+	\end{align}
+
+	Запишем выражения (\ref{eq:2.5.7}) с помощью введенных дифференциальных операторов.
+	\begin{align} \label{3.9}
+		dz = \frac{\partial f}{\partial x} dx + \frac{\partial f}{\partial y} dy
+		= \left( \frac{\partial}{\partial x} dx + \frac{\partial}{\partial y} dy \right) \cdot f
+	\end{align}
+\end{tbox}
+
+\begin{tbox}{Дифференциал 2-го порядка}
+	Вычислим по определению дифференциал 2-го порядка:
+	\begin{align} \label{eq:2.5.10*}
+		d^2 z = d(dz) = d \left( \frac{\partial z}{\partial x}\right) dx + d\left(\frac{\partial z}{\partial y}\right) dy
+	\end{align}
+
+	При вычислении дифференциалов $dx$ и $dy$ независимых переменных считаем константными ($dx = \Delta x$, $dy = \Delta y$), поэтому вычисляем дифференциалы только от функций $\frac{\partial z}{\partial x}$ и $\frac{\partial z}{\partial y}$ по формуле (\ref{eq:2.5.7}):
+	\begin{equation}
+		\begin{cases}
+			\displaystyle d \left( \frac{\partial f}{\partial x} \right) = \frac{\partial}{\partial x} \left( \frac{\partial f}{\partial x} \right) dx + \frac{\partial}{\partial y} \left( \frac{\partial f}{\partial x} \right) dy
+			= \frac{\partial^2 f}{\partial x^2} dx - \frac{\partial^2 f}{\partial x \partial y} dy\\
+			\displaystyle d \left( \frac{\partial f}{\partial y} \right) = \frac{\partial}{\partial x} \left( \frac{\partial f}{\partial y} \right) dx + \frac{\partial}{\partial y} \left( \frac{\partial f}{\partial y} \right) dy = \frac{\partial^2 f}{\partial y \partial x} dx - \frac{\partial^2 f}{\partial y^2} dy
+		\end{cases}
+	\end{equation}
+
+	\begin{align*}
+		d^2 f = \left( \frac{\partial^2 f}{\partial x^2} dx - \frac{\partial^2 f}{\partial x \partial y} dy \right) dx
+		+ \left( \frac{\partial^2 f}{\partial x \partial y} dx - \frac{\partial^2 f}{\partial y^2} dy \right) dy = &\\
+		= -\frac{\partial^2 f}{\partial x^2} dx^2 + \frac{\partial^2 f}{\partial y \partial x} dx \cdot dy + \frac{\partial^2 f}{\partial x \partial y} dy \cdot dx - \frac{\partial^2 f}{\partial y^2} dy^2 = &\\
+		= \frac{\partial^2 f}{\partial x^2} dx^2 + 2\frac{\partial^2 f}{\partial x \partial y} dx dy + \frac{\partial^2 f}{\partial y^2} dy^2.&
+	\end{align*}
+
+	Получаем формулу дифференциала 2 порядка для формулы $z = f(x, y)$.
+	\begin{align} \label{eq:2.5.11}
+		d^2 z = \frac{\partial^2 f}{\partial x^2} d x^2 + 2 \frac{\partial^2 f}{\partial x \partial y} d x \, d y + \frac{\partial^2 f}{\partial y^2} d y^2
+	\end{align}
+\end{tbox}
+
+\begin{tbox}{Операторная запись дифференциалов}
+	Запишем эту формулу в операторном виде:
+	\begin{align*}
+		d^2 z = \frac{\partial^2 f}{\partial x^2} dx^2 + 2 \frac{\partial^2 f}{\partial x \partial y} dx dy + \frac{\partial^2 f}{\partial y^2} dy^2
+		= \left( \frac{\partial}{\partial x} dx + \frac{\partial}{\partial y} dy \right)^2 \cdot f.
+	\end{align*}
+	так как $\frac{\partial}{\partial x}$ и $\frac{\partial}{\partial y}$ — дифференциальные операторы и частные производные одновременно, то:
+	\begin{align*}
+		\frac{\partial}{\partial x} \cdot \frac{\partial}{\partial y} \cdot f = \frac{\partial}{\partial x} \cdot \frac{\partial f}{\partial y} = \frac{\partial^2 f}{\partial x \, \partial y} = \frac{\partial^2}{\partial x \, \partial y} f,
+	\end{align*}
+	где $\frac{\partial^2}{\partial x \, \partial y}$ — дифференциальный оператор 2-го порядка.
+	\begin{align} \label{eq:2.5.12}
+		\boxed{d^2 z = \left( \frac{\partial}{\partial x} dx + \frac{\partial}{\partial y} dy \right)^2 f}
+	\end{align}
+	\vspace{-1em}
+	\begin{align} \label{eq:2.5.13}
+		\boxed{d^3 z = \left( \frac{\partial}{\partial x} dx + \frac{\partial}{\partial y} dy \right)^3 f}
+	\end{align}
+	\vspace{-1em}
+	\begin{align} \label{eq:2.5.14}
+		\boxed{d^n z = \left( \frac{\partial}{\partial x} dx + \frac{\partial}{\partial y} dy \right)^n f}, \quad n = 1, 2, 3, \dots
+	\end{align}
+\end{tbox}
+
+\begin{tbox}{Обобщение на функции многих переменных}
+	Полученную по формуле (\ref{eq:2.5.14}) систему обобщают на дифференциалы высших порядков функции $f$ со всеми числами независимых переменных $y = f(x_1, x_2, \dots, x_k)$:
+	\begin{align*}
+		d y = \frac{\partial f}{\partial x_1} d x_1 + \frac{\partial f}{\partial x_2} d x_2 + \cdots + \frac{\partial f}{\partial x_k} d x_k = \left(\frac{\partial}{\partial x_1} d x_1 + \cdots + \frac{\partial}{\partial x_k} d x_k \right) \cdot f
+	\end{align*}
+	\vspace{-2em}
+	\begin{align*}
+		d^n y = \left(\frac{\partial}{\partial x_1} d x_1 + \frac{\partial}{\partial x_2} d x_2 + \cdots + \frac{\partial}{\partial x_k} d x_k \right)^n \cdot f
+	\end{align*}
+\end{tbox}

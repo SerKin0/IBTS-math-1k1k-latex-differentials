@@ -1,0 +1,53 @@
+\subsection{Дифференциальная функция многих переменных} \label{sec:1.4}
+
+Если функция $y = f(x)$ дифференцируема в точке $x_0$, что ее приращение представимо в виде:
+\begin{align*}
+	\Delta f(x_0) = A \cdot \Delta x + \alpha(\Delta x) \cdot \Delta x = A \cdot \Delta x + O(\Delta x) \quad \text{\textit{, т.к.} $\alpha(\Delta x) \to 0$ \textit{при} $\Delta x \to 0$}
+\end{align*}
+
+Приращение функции состоит из двух частей, $A \cdot \Delta x$ -- линейной относительно $\Delta x$ и величине более высокого порядка малости, чем $\Delta x$. Главная линейная часть называется дифференциалом функции и обозначается $d y = A \cdot \Delta x$, но $A = f^{\prime}(x_0)$, а $\Delta x = d x$, тогда $\boxed{d y = f^{\prime}(x_0) \, d x}$.
+
+Рассмотрим функцию многих переменных $y = f(\vec{x})$, $\vec{x} \in E \subset \mathbb{R}^k$. Запишем определение дифференцируемой функции в точке $x_0$ в виде \cref{eq:2.2.5,eq:2.2.6}.
+\begin{gather*}
+	\Delta f(\vec{x}_0) = \boxed{\grad f(\vec{x}_0) \cdot \Delta \vec{x}} + \vec{\alpha}(\Delta \vec{x}) \cdot \Delta \vec{x}\\
+	\Delta f(\vec{x}_0) = \boxed{\sum_{i=1}^{k} \frac{\partial f(\vec{x}_0)}{\partial x_i} \Delta x_i} + \sum_{i=1}^{k} \alpha_i(\Delta \vec{x}) \cdot \Delta x_i
+\end{gather*}
+
+Выделенные части определения представляет линейную относительно $\Delta \vec{x}$ часть приращения функции, которая называется \textbf{дифференциалом}.
+\begin{multline*}
+	d y = \grad f(\vec{x}_0) \cdot \Delta \vec{x} = \sum_{i=1}^{k} \frac{\partial f(\vec{x}_0)}{\partial x_i} \Delta x_i =\\= \frac{\partial f(\vec{x}_0)}{\partial x_1} \Delta x_1 + \frac{\partial f(\vec{x}_0)}{\partial x_2} \Delta x_2 + ... + \frac{\partial f(\vec{x}_0)}{\partial x_k} \Delta x_k
+\end{multline*}
+
+\textbf{Приращения} независимых переменных обозначим через \textbf{дифференциал} независимых переменных: $\Delta x_1 = d x_1$, $\Delta x_2 = d x_2$, ..., $\Delta x_k = d x_k$.
+
+Тогда дифференциалом функции многих переменных будет равен:
+\begin{align*}
+	\boxed{d y = \frac{\partial f(\vec{x}_0)}{\partial x_1} d x_1 + \frac{\partial f(\vec{x}_0)}{\partial x_2} d x_2 + ... + \frac{\partial f(\vec{x}_0)}{\partial x_k} d x_k = \sum_{i=1}^{k} \frac{\partial f(\vec{x}_0)}{\partial x_i} d x_i}
+\end{align*}
+
+Выражения вида $\frac{\partial f(\vec{x}_0)}{\partial x_i} d x_i$ называются \textbf{частными дифференциальными} и обозначаются:
+\begin{align*}
+	d_i f(\vec{x}_0) = \frac{\partial f(\vec{x}_0)}{\partial x_i} d x_i \quad (i = 1,...,k)
+\end{align*}
+
+Тогда полный дифференциал функции $d y$ равен сумме частных дифференциалов по всех независимым переменным.
+\begin{align*}
+	d y = \sum_{i=1}^{k} d_i \, f(x_0)
+\end{align*}
+
+\begin{center}
+	\textbf{Примеры}
+\end{center}
+
+\begin{enumerate}
+	\item \(z = f(x, y) \quad \Rightarrow \quad d_x \, z = f_x^{\prime} d x, \qquad d_y \, z = f^{\prime}_y d y\)
+
+	Тогда для функции двух переменных дифференциал равен: \\
+	\[d z = f^{\prime}_x \, d x + f^{\prime}_y \, d y = \frac{\partial f}{\partial x} d x + \frac{\partial f}{\partial y} d y
+	\]
+	\item \(u = f(x, y, z) \quad \Rightarrow \quad d_x \, u = \frac{\partial f}{\partial x} d x, \quad d_y \, u = \frac{\partial f}{\partial y} d y, \quad d_z \, u = \frac{\partial f}{\partial z} d z\)
+
+	Для функции трех переменных дифференциал вычисляется по формуле: \\
+	\[d u = f^{\prime}_x \, d x + f^{\prime}_y \, d y + f^{\prime}_z \, d z = \frac{\partial f}{\partial x} d x + \frac{\partial f}{\partial y} d y + \frac{\partial f}{\partial z} d z \]
+\end{enumerate}
+

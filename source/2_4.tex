@@ -1,0 +1,68 @@
+\subsection{Производная сложной функции} \label{sec:1.5}
+Рассмотрим на примере функции двух переменных. Пусть задана функция $z = f(u, v)$, а ее аргументы являются функциями переменных $x$ и $y$: $u=u(x,y)$ и $v=v(x,y)$. Тогда получаем сложную функцию $z = f(u(x,y), v(x,y))$ независимых переменных $x$ и $y$. Функции $u = u(x,y)$ и $v = v(x,y)$ независимых промежуточными аргументами.
+
+В дальнейшем будем рассматривать функцию двух промежуточных и двух независимых переменных.
+
+\begin{tbox*}{Теорема}
+	Если функция $z = f(u, v)$ дифференцируема в точке $(u_0, v_0) \in D \subset \mathbb R^2$, а функции $u = u(x,y)$, $v = v(x,y)$ дифференцируемы в точке $(x_0, y_0) \in E \subset \mathbb R^2$, причем $u_0 = u(x_0, y_0)$ и $v_0 = v(x_0, y_0)$.
+
+	Тогда сложная функция $z = f(u(x,y), v(x,y))$ дифференцируема в точке $(x_0, y_0)$ и ее частные производные в этой точке вычисляются по формулам:
+
+	\begin{gather*}
+		\frac{\partial z(x_0, y_0)}{\partial x}  = \frac{\partial f(u_0, v_0)}{\partial u} \times \frac{\partial u(x_0, y_0)}{\partial x} + \frac{\partial f(u_0, v_0)}{\partial v} \times \frac{\partial v(x_0, y_0)}{\partial x}\\
+		\frac{\partial z(x_0, y_0)}{\partial y} = \frac{\partial f(u_0, v_0)}{\partial u} \times \frac{\partial u(x_0, y_0)}{\partial y} + \frac{\partial f(u_0, v_0)}{\partial v} \times \frac{\partial v(x_0, y_0)}{\partial y}
+	\end{gather*}
+
+	\textbf{Доказательство:} Воспользуемся определением дифференцируемой функции двух переменных \cref{eq:2.2.7}.
+	\begin{align} \label{eq:2.4.1}
+		\Delta z(M_0) = \frac{\partial f(M_0)}{\partial x} \Delta x + \frac{\partial f(M_0)}{\partial y} \Delta y + \alpha_1 (\Delta x, \Delta y) \Delta x + \alpha_2 (\Delta x, \Delta y) \Delta y
+	\end{align}
+	где $a_1(\Delta x, \Delta y) \to 0$ и $\alpha_2(\Delta x, \Delta y) \to 0$, при $\Delta x \to 0$ и $\Delta y \to 0$. \\
+
+	Так как функция $z = f(u, v)$ дифференцируема в точке $(u_0, v_0)$, то ее полное приращение запишем в виде:
+	\begin{align} \label{eq:2.4.2}
+		\Delta z (u_0, v_0) = \frac{\partial f(u_0, v_0)}{\partial u} \Delta u + \frac{\partial f(u_0, v_0)}{\partial v} \Delta v + \alpha(\Delta u, \Delta v) \Delta u + \beta (\Delta u, \Delta v) \Delta v
+	\end{align}
+	где $\alpha(\Delta u, \Delta v) \to 0$ и $\beta(\Delta u, \Delta v) \to 0$, при $\Delta y \to 0$ и $\Delta v \to 0$. Т.к. функции $u = u(x,y)$ и $v = v(x,y)$ дифференцируемы в точке $(x_0, y_0)$, то их полные приращения имеют вид:
+	\begin{align} \label{eq:2.4.3}
+		\Delta u(x_0, y_0) = \frac{\partial u(x_0, y_0)}{\partial x} \Delta x + \frac{\partial u(x_0, y_0)}{\partial y} \Delta y + \alpha_1(\Delta x, \Delta y) \Delta x + \beta_1 (\Delta x, \Delta y) \Delta y
+	\end{align}
+	где $\alpha_1(\Delta x, \Delta y) \to 0$, $\beta_1(\Delta x, \Delta y) \to 0$ при $\Delta x \to 0$ и $\Delta y \to 0$.
+	\begin{align} \label{eq:2.4.4}
+		\Delta v(x_0, y_0) = \frac{\partial u(x_0, y_0)}{\partial x} \Delta x + \frac{\partial v(x_0, y_0)}{\partial y} + \alpha_2(\Delta x, \Delta y) \Delta x + \beta_2(\Delta x, \Delta y) \Delta y
+	\end{align}
+	где $\alpha_2(\Delta x, \Delta y) \to 0$, $\beta_2 (\Delta x, \Delta y) \to 0$ при $\Delta x \to 0$ и $\Delta y \to 0$.
+
+	Подставим $\Delta u(x_0, y_0)$ и $\Delta v(x_0, y_0)$ из выражений \cref{eq:2.4.2,eq:2.4.4} в \cref{eq:2.4.1}, кроме двух последних слагаемых $\alpha(\Delta u, \Delta v) \Delta u$ и $\beta(\Delta u, \Delta v) \Delta v$, иначе получается громоздкие выражения:
+	\begin{multline} \label{eq:2.4.5}
+		\Delta z(u_0, v_0) = \frac{\partial f(u_0, v_0)}{\partial u} \bigg(\frac{\partial u(x_0, y_0)}{\partial x} \Delta x + \frac{\partial u(x_0, y_0)}{\partial y} \Delta y + \\ + \alpha_1 (\Delta x, \Delta y) \Delta x + \beta_1(\Delta x, \Delta y) \Delta y\bigg)
+	\end{multline}
+	Соберем коэффициент при $\Delta x$ и $\Delta y$ и учтем, что $u_0 = u(x_0, y_0)$ и $v_0 = v(x_0, y_0)$ в левой части выражения (\ref{eq:2.4.5}).
+\end{tbox*}
+
+\begin{tbox}{Следствия}
+	Полученные формулы можно обобщить на любое количество промежуточных аргументов и независимых переменных. Пусть задана по $y$.
+	\begin{align}
+		y = f(u_1(x_1, x_2, ..., x_k), u_2(x_1, x_2, ..., x_k), ..., u_n(x_1, x_2, ..., x_k))
+	\end{align}
+	$n$ -- промежуточных аргументов $u_1, u_2, ..., u_n$ и $k$ независимых переменных $x_1, x_2, ..., x_k$.
+
+	Тогда частные производные сложной функции по независимой переменным будет вычисляться по формуле:
+	\begin{align}
+		\boxed{\frac{\partial y}{\partial x_i} = \frac{\partial f}{\partial u_1} \times \frac{\partial u_1}{\partial x_i} + \frac{\partial f}{\partial u_2} \times \frac{\partial u_2}{\partial x_i} + ... + \frac{\partial f}{\partial u_k} \times \frac{\partial u_k}{\partial x_i} \quad (i = 1, ..., k)}
+	\end{align}
+
+	При вычислении частных производных от сложной функции \uline{нужно запомнить}, что от \uline{функции $f$} всегда берутся \uline{производные по промежуточным  переменным}, а промежуточные аргументы дифференцируются по независимым переменных $x$ и $y$.\\
+
+	Полученные формулы являются обобщениями производной сложной функции одной переменной.
+	\begin{align*}
+		y = f(u(x)) \quad &\Rightarrow \quad \frac{d y}{d x} = \frac{d f}{d u} \times \frac{d u}{d x}\\
+		z = f(u(x,y)) \quad &\Rightarrow \quad \frac{\partial z}{\partial x} = \frac{d  f}{d  u} \cdot \frac{\partial u}{\partial x}, \, \frac{\partial z}{\partial y} = \frac{d  f}{d  u} \cdot \frac{\partial u}{\partial y}\\
+		z = f(u(x,y), v(x,y)) \quad &\Rightarrow \quad \frac{\partial z}{\partial x} = \frac{\partial f}{\partial u} \cdot \frac{\partial u}{\partial x} + \frac{\partial f}{\partial v} \cdot \frac{\partial v}{\partial x}, \\
+		& \qquad \frac{\partial z}{\partial y} = \frac{\partial f}{\partial u} \cdot \frac{\partial u}{\partial y} + \frac{\partial f}{\partial v} \cdot \frac{\partial v}{\partial y} \\
+		z = f(u(x,y), v(x,y), t(x,y)) \quad &\Rightarrow \quad \frac{\partial z}{\partial x} = \frac{\partial f}{\partial u} \cdot \frac{\partial u}{\partial x} + \frac{\partial f}{\partial v} \cdot \frac{\partial v}{\partial x} + \frac{\partial f}{\partial t} \cdot \frac{\partial t}{\partial x}
+	\end{align*}
+	\begin{align}
+		\frac{\partial z(x_0, y_0)}{\partial y} = \frac{\partial f(u_0, v_0)}{\partial u} \cdot \frac{\partial u(x_0, y_0)}{\partial y} + \frac{\partial f(u_0, v_0)}{\partial v} \cdot \frac{\partial v(x_0, y_0)}{\partial y}
+	\end{align}
+\end{tbox}
