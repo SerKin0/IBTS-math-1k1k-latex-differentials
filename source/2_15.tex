@@ -1,0 +1,158 @@
+\subsection{Понятие квадратичной формы и критерии Сильвестра}
+
+\begin{tbox}{Квадратичная форма}
+	Рассмотрим симметрическую матрицу размером $k \times k$:
+	\begin{equation*}
+		A =
+		\begin{pmatrix}
+			a_{11} & a_{12} & a_{13} & \cdots & a_{1k} \\
+			a_{21} & a_{22} & a_{23} & \cdots & a_{2k} \\
+			a_{31} & a_{32} & a_{33} & \cdots & a_{3k} \\
+			\vdots & \vdots & \vdots & \ddots & \vdots \\
+			a_{k1} & a_{k2} & a_{k3} & \dots & a_{kk} \\
+		\end{pmatrix}
+		\quad a_{ij} = a_{ji}
+	\end{equation*}
+
+	Главными минорами матрицы $A$ называются следующие определители:
+	\begin{align*}
+		A_1 = a_{11} &&
+		A_2 = \begin{vmatrix}
+			a_{11} & a_{12} \\
+			a_{21} & a_{22}
+		\end{vmatrix} &&
+		A_{3} = \begin{vmatrix}
+			a_{11} & a_{12} & a_{13} \\
+			a_{21} & a_{22} & a_{23} \\
+			a_{31} & a_{32} & a_{33}
+		\end{vmatrix} &&
+		A_k = \begin{vmatrix}
+			a_{11} & a_{12} & a_{13} & \cdots & a_{1k} \\
+			a_{21} & a_{22} & a_{23} & \cdots & a_{2k} \\
+			a_{31} & a_{32} & a_{33} & \cdots & a_{3k} \\
+			\vdots & \vdots & \vdots & \ddots & \vdots \\
+			a_{k1} & a_{k2} & a_{k3} & \dots  & a_{kk}
+		\end{vmatrix}
+	\end{align*}
+
+	Пусть $x_1$, $x_2$, $x_3$, $\dots$, $x_k$ -- некоторые переменные величины, из них и элементов матрицы $A$ составим выражения:
+	\begin{align*}
+		P(x_1, x_2, \dots, x_k) = \,
+		& a_{11} \cdot x_{1}^2 + a_{12} \cdot x_{1} x_{2} + a_{13} \cdot x_{1} x_{3} + ... + a_{1k} \cdot x_{1} x_{k} + \\
+		&a_{21} \cdot x_{2} x_{1} + a_{22} \cdot x_{2}^2 + a_{23} \cdot x_{2} x_{3} + ... + a_{2k} \cdot x_{2} x_{k} + \\
+		&a_{31} \cdot x_{3} x_{1} + a_{32} \cdot x_{3} x_{2} + a_{33} \cdot x_{3}^2 + ... + a_{3k} \cdot x_{3} x_{k} + \\
+		&\dots\\
+		&a_{k1} \cdot x_{k} x_{1} + a_{k2} \cdot x_{k} x_{2} + a_{k3} \cdot x_{k} x_{3} + ... + a_{kk} \cdot x_{k}^2
+	\end{align*}
+
+	Так как матрица $A$ симметрична ($a_{ij} = a_{ji}$), тогда:
+	\begin{equation} \label{eq:7.1}
+		\begin{aligned}
+			P(x_1, x_2, \dots, x_k) = &(a_{11} \cdot x_{1}^2 + a_{22} \cdot x_{2}^2 + a_{33} \cdot x_{3}^2 + ... + a_{kk} \cdot x_k^2) + \\
+			&(2 a_{12} \cdot x_1 x_2 + 2 a_{13} \cdot x_1 x_3 + 2 a_{23} \cdot x_2 x_3 + ... + 2 a_{k - 1, k} \cdot x_{k-1} x_{k})
+		\end{aligned}
+	\end{equation}
+
+	Выражение, включающее в себя квадраты всех переменных и всевозможные их попарные произведения, называется \textbf{квадратичной формой}.
+	\begin{align*}
+		\text{Пусть $k = 2$} && P(x_1, x_2) = a_{11} \cdot x_1^2 + a_{22} \cdot x_2^2 + 2 a_{12} \cdot x_1 x_2,\\
+		\text{Пусть $k = 3$} && P(x_1, x_2, x_3) = a_{11} \cdot x_1^2 + a_{22} \cdot x_2^2 + a_{33} \cdot x_3^2 + \\&&+ 2 a_{12} \cdot x_1 x_2 + 2 a_{13} \cdot x_1 x_3 + 2 a_{23} \cdot x_2 x_3
+	\end{align*}
+
+	Если квадратичная форма \eqref{eq:7.1}, $P(x_1, x_2, ..., x_k) > 0$, при различных значения переменных, то ее называют \textbf{положительно определенной квадратичной формой}.
+
+	Если $P(x_1, x_2, ..., x_k) < 0$, при всех значениях переменных $(x_1, x_2, ..., x_k)$, то ее называют \textbf{отрицательно определенной квадратичной формой}.
+
+	Если $P(x_1, x_2, ..., x_k)$ принимает как положительное, так и отрицательное значение, при разных значениях переменных, то ее называют \textbf{знакопеременной квадратичной формой}.
+\end{tbox}
+
+\begin{tbox}{Критерии Сильвестра}
+	Чтобы квадратичная форма матрицы $A$, являлась \textit{положительной определенной}, необходимо и достаточно, чтобы все главные миноры матрицы $A$ были положительны.
+
+	\begin{equation*}
+		P(x_1, x_2, ... x_k) > 0  \Leftrightarrow A_1 > 0, \, A_2 > 0, \, A_3 > 0, \, ...,A_k>0
+	\end{equation*}
+
+	Чтобы квадратичная форма матрицы $A$, являлась \textit{отрицательно определенной}, необходимо и достаточно, чтобы все знаки главных миноров матрицы $A$ чередовались, при чем $A_1 < 0$.
+
+	\begin{equation*}
+		P(x_1, x_2, ..., x_k) < 0 \Leftrightarrow A_1 < 0, \, A_2 > 0, \, A_3 < 0, ..., \, A_k > 0
+	\end{equation*}
+\end{tbox}
+
+\begin{tbox}{Второй дифференциал функции многих переменных}
+	Рассмотрим второй дифференциал для функции $k$ - независимых переменных.
+	\begin{multline*}
+		d^2 y = \left(\frac{\partial}{\partial x_1} dx_1 + \frac{\partial}{\partial x_2} dx_2 + \cdots + \frac{\partial}{\partial x_k} dx_k\right)^2 f(x_1, \ldots, x_k) \\
+		= \left(\frac{\partial^2}{\partial x_1^2} dx_1^2 + \frac{\partial^2}{\partial x_2^2} dx_2^2 + \cdots + \frac{\partial^2}{\partial x_k^2} dx_k^2 \right. \\
+		\left. + 2\frac{\partial^2}{\partial x_1 \partial x_2} dx_1 dx_2 + \cdots + 2\frac{\partial^2}{\partial x_{k-1} \partial x_k} dx_{k-1} dx_k\right) f \\
+		= \frac{\partial^2 f}{\partial x_1^2} dx_1^2 + \frac{\partial^2 f}{\partial x_2^2} dx_2^2 + \cdots + \frac{\partial^2 f}{\partial x_k^2} dx_k^2 \\
+		+ 2\frac{\partial^2 f}{\partial x_1 \partial x_2} dx_1 dx_2 + \cdots + 2\frac{\partial^2 f}{\partial x_{k-1} \partial x_k} dx_{k-1} dx_k
+	\end{multline*}
+	Если $x_0$ - стационарная точка.
+	\begin{multline*}
+		d^2 y\left(\vec{x}_0\right)= \,\frac{\partial^2 f\left(\vec{x}_0\right)}{\partial x_1^2} d x_1^2+\frac{\partial^2 f\left(\vec{x}_0\right)}{\partial x_2^2} \cdot d x_2^2+...+ \frac{\partial^2 f\left(\vec{x}_0\right)}{\partial x_k^2} \cdot d x_k^2+ \\
+		+2\frac{\partial^2 f}{\partial x_1 \partial x_2} d x_1 d x_2+2\frac{\partial^2 f}{\partial x_1 \partial x_3} d x_1 d x_3+\ldots+2\frac{\partial^2 f\left(\vec{x}_0\right)}{\partial x_{k-1} \partial x_k} d x_{k-1} d x_k
+	\end{multline*}
+
+	$d^2 y$ в точке $x_0$ -- является квадратичной формой относительно дифференциалов независимых переменных $d x_1$, $d x_2$, ..., $d x_k$. Матрица этой квадратичной формы имеет вид:
+	\begin{equation*}
+		\begin{aligned}
+			A = \begin{pmatrix}
+				\frac{\partial^2 f}{\partial x_1^2} & \frac{\partial^2 f}{\partial x_1 \partial x_2} & \frac{\partial^2 f}{\partial x_1 \partial x_3} & \cdots & \frac{\partial^2 f}{\partial x_1 \partial x_k} \\
+				\frac{\partial^2 f}{\partial x_2 \partial x_1} & \frac{\partial^2 f}{\partial x_2^2} & \frac{\partial^2 f}{\partial x_2 \partial x_3} & \cdots & \frac{\partial^2 f}{\partial x_2 \partial x_k} \\
+				\vdots & \vdots & \vdots & \ddots & \vdots \\
+				\frac{\partial^2 f}{\partial x_k \partial x_1} & \frac{\partial^2 f}{\partial x_k \partial x_2} & \frac{\partial^2 f}{\partial x_k \partial x_3} & \cdots & \frac{\partial^2 f}{\partial x_k \partial x_k} \\
+			\end{pmatrix}
+		\end{aligned}
+	\end{equation*}
+
+	Тогда для определения знака $d^2 y (\vec{x}_0)$ -- применяем критерий Сильвестра. Для этого находим в точке $\vec{x}_0$ -- главные миноры матрицы $A$ и определяет их знак, соответственно делаем вывод о знаке квадратичной формы.
+\end{tbox}
+
+\begin{tbox}{Теорема о достаточном условии вывода экстремума для функции двух переменных}
+	Пусть функция $z = f(x,y)$ -- дифференцируемая в окрестностях стационарной точки $M_0(x_0, y_0)$ и имеет в этой точке непрерывную частную производную второго порядка. Тогда:
+	\begin{enumerate}
+		\item Если $f_{xx}''(M_0) \cdot f_{yy}''(M_0) - {f_{xy}''}^2(M_0) >0$ и $f_{xx}''(M_0) > 0$, то $M_0$ -- точка минимума.
+		\item Если $f_{xx}''(M_0) \cdot f_{yy}''(M_0) - {f_{xy}''}^2(M_0) >0$ и $f_{xx}''(M_0) < 0$, то $M_0$ -- точка максимума.
+		\item Если $f_{xx}''(M_0) \cdot f_{yy}''(M_0) - {f_{xy}''}^2(M_0) < 0$, то в точке $M_0$ экстремума нет.
+	\end{enumerate}
+
+	\subsubsection*{Доказательство}
+	Следует из критерия Сильвестра, для этого запишем второй дифференциал функции $z = f(x,y)$ в стационарной точке $M_0$.
+	\begin{equation*}
+		\begin{aligned}
+			d^2 z (M_0) = f_{xx}''(M_0) \,dx^2 + 2 f_{xy}''(M_0) \,dx\, dy + f_{yy}''(M_0) \, dy^2
+		\end{aligned}
+	\end{equation*}
+	$d^2 z(M_0)$ -- является квадратичной формой относительно дифференциалов $dx$ и $dy$, а матрица этой квадратичной формы имеет вид.
+	\begin{equation*}
+		\begin{aligned}
+			A = \begin{pmatrix}
+				f_{xx}''(M_0) & f_{xy}''(M_0) \\
+				f_{yx}''(M_0) & f_{yy}''(M_0)
+			\end{pmatrix}
+		\end{aligned}
+	\end{equation*}
+
+	Запишем главные миноры матрицы $A$:
+	\begin{equation*}
+		\begin{aligned}
+			A_1 = f_{xx}''(M_0) && A_2 = \begin{vmatrix}
+				f_{xx}''(M_0) & f_{xy}''(M_0) \\
+				f_{yx}''(M_0) & f_{yy}''(M_0)
+			\end{vmatrix} = f_{xx}''(M_0) \cdot f_{yy}''(M_0) - {f_{xy}''}^2(M_0)
+		\end{aligned}
+	\end{equation*}
+
+	Тогда по критерию Сильвестра:
+	\begin{enumerate}
+		\item если $A_1 > 0$ и $A_2 > 0$, то квадратичная форма является \textit{положительно определенной}, т.е. $d^2 z(M_0) > 0$ и по теореме 2 точка $M_0$ является точкой \textit{минимума}.
+		\item если $A_1 < 0$ и $A_2 > 0$, то квадратичная форма является \textit{отрицательно определенной}, т.е. $d^2 z(M_0) < 0$ и по теореме 2 точка $M_0$ является точкой \textit{максимума}.
+		\item если $A_2 = f_{xx}''(M_0) \cdot f_{yy}''(M_0) - {f_{xy}''}^2(M_0) < 0$, в этом случае квадратичная форма является знакопеременной квадратичной формой, т.к. оно не будет ни положительной, ни отрицательной.
+	\end{enumerate}
+
+	Если $d^2 z (M_0)$ -- не определен по знаку, то поп теореме 3 в точке $M_0$ экстремума нет. \\
+
+	\textbf{Замечания: } В случае, если $A_2 = f_{xx}''(M_0) \cdot f_{yy}''(M_0) - {f_{xy}''}^2(M_0) = 0$, то наличия или отсутствие экстремума необходимо доказать по определению, этот случай соответствует тому, что $d^2 z(M_0) = 0$.
+\end{tbox}

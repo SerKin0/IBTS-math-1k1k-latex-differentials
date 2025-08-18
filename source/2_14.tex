@@ -1,0 +1,53 @@
+\subsection{Экстремум функции многих переменных}
+
+\begin{tbox}{Определение 1}
+	Функция $y = f(\vec{x})$ имеет в точке $\vec{x}_0 \subset \mathbb{R}^k$ локальный максимум, если существует окрестность точки $\vec{x}_0$, такая, что для $\forall \vec{x}$ из этой окрестности выполняется неравенство:
+	\begin{equation*}
+		f(\vec{x}) < f(\vec{x}_0)
+	\end{equation*}
+	\begin{equation}\label{eq:6.4}
+		(\exists \delta > 0)(\forall \vec{x} \in E, \, 0 < ||\vec{x} - \vec{x}_0|| < \delta): \, f(\vec{x}) < f(\vec{x}_0)
+	\end{equation}
+\end{tbox}
+
+Если в определении 1 неравенство нестрогое: $f(\vec{x}) <= f(\vec{x}_0)$ -- то максимум называется \textbf{нестрогим}, аналогично $f(\vec{x})$ -- имеет в точке $\vec{x}_0$ -- локальный минимум, если:
+\begin{equation} \label{eq:6.5}
+	(\exists \delta > 0)(\forall \vec{x} \in E, \, 0 < ||\vec{x} - \vec{x}_0|| < \delta): \, f(\vec{x}) > f(\vec{x}_0)
+\end{equation}
+
+Если неравенство \cref{eq:6.5} нестрогое $f(\vec{x}) >= f(\vec{x}_0)$ -- то минимум называется нестрогим.
+
+\begin{tbox}{Теорема 1. Необходимое условие экстремума}
+	Пусть функция \( y = f(x) \) дифференцируема в точке \( \vec{x}_0 \in \mathbb{E} \subset \mathbb{R}^k \) и имеет в этой точке локальный экстремум (максимум или минимум).
+
+	Тогда все частные производные 1-го порядка равны нулю в этой точке:
+	\begin{equation*}
+		\frac{\partial f(x_0)}{\partial x_1} = 0, \quad \frac{\partial f(x_0)}{\partial x_2} = 0, \quad \dots \quad \frac{\partial f(x_0)}{\partial x_k} = 0.
+	\end{equation*}
+
+	\textbf{Доказательство: } Пусть $\vec{x}_0 = (x_{0_1}, x_{0_2}, \cdots, x_{0_k})$,
+\end{tbox}
+
+Рассмотрим функцию \( y = f(x_1, x_2, \dots, x_k) \). Зафиксируем переменные \( x_2, x_3, \dots, x_k \), полагая их равными:
+\begin{equation}
+	x_2 = x_0, \quad x_3 = x_0, \quad \dots, \quad x_k = x_0.
+\end{equation}
+
+Тогда получаем функцию \( g \), которая зависит от одной переменной \( x_1 \):
+\begin{equation}
+	y = f(x_1, x_0, \dots, x_0) = g(x_1).
+\end{equation}
+
+\begin{tbox}{Необходимое условие для функции одной переменной}
+	Так как точка \( x_0 \) является точкой экстремума для функции \( y = f(x_1, x_2, \dots, x_k) \), то она также является точкой экстремума для функции \( g(x_1) \). Согласно необходимому условию экстремума:
+	\begin{equation}
+		\frac{dg(x_0)}{dx_1} = 0 \Rightarrow \frac{\partial f(x_0)}{\partial x_1} = 0.
+	\end{equation}
+\end{tbox}
+
+Аналогично, фиксируя другие переменные, получаем:
+\begin{equation}
+	\frac{dg(x_0)}{dx_2} = 0 \Rightarrow \frac{\partial f(x_0)}{\partial x_2} = 0.
+\end{equation}
+
+Таким образом, все частные производные 1-го порядка равны нулю в точке экстремума.

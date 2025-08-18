@@ -1,0 +1,149 @@
+\subsection{Замена переменных в дифференциальных уравнениях или выражениях, содержащих частные производные}
+
+\begin{tbox}{Замена переменных в дифференциальных уравнениях}
+	Пусть задана некоторое дифференциальное уравнение или выражение, содержащие независимые переменные $x$ и $y$, функция $z = z(x,y)$ и частные производные этой функции:
+	\begin{align} \label{eq:5.4}
+		F(x,y,z, \frac{\partial z}{\partial x}, \frac{\partial z}{\partial y}, \dots) = 0
+	\end{align}
+	В данном уравнении нужно ввести новые независимые переменные $u$ и $v$ и новую функцию $W = W(u,v)$, т.е. сделать замену переменных.
+
+	Пусть замена переменных осуществляется с помощью системы, когда новые переменные $u$, $v$ и $w$ выражаются через прежние (старые переменные).
+	\begin{equation} \label{eq:5.5}
+		\begin{cases}
+			u = f(x,y,z)\\
+			v = g(x,y,z)\\
+			w = p(x,y,z)
+		\end{cases}
+	\end{equation}
+
+	При замене переменных (\ref{eq:5.5}) уравнение (\ref{eq:5.4}) будет преобразовано к виду:
+	\begin{align} \label{eq:5.6}
+		F^*(u,v,w, \frac{\partial w}{\partial x}, \frac{\partial w}{\partial y}, \dots) = 0
+	\end{align}
+
+	для этого переменные $x$, $y$, $z$ выражаются из системы (\ref{eq:5.5}), а для выражения частных производных $\frac{\partial z}{\partial x}$ и $\frac{\partial z}{\partial y}$ через новые частные производные $\frac{\partial w}{\partial u}$, $\frac{\partial w}{\partial v}$ поступают следующим образом. Для этого систему (\ref{eq:5.5}) переписываем в виде, удобном для дифференцирования. Так как $z = z(x,y)$, то из системы (\ref{eq:5.5}) получаем, что $u = u(x,y)$, $v = v(x,y)$, а новая функция $w = w(u,v) = v(u(x,y), v(x,y))$. Тогда система (\ref{eq:5.5}) может быть переписана в виде:
+	\begin{equation} \label{eq:5.7}
+		\begin{split}
+			\text{Новые переменные} \quad & \text{Старые переменные}\\
+			u(x,y) =& \, f(x,y,z(x,y))\\
+			v(x,y) =& \, g(x,y,z(x,y))\\
+			w(u(x,y), v(x,y)) =& \, P(x,y,z(x,y))
+		\end{split}
+	\end{equation}
+\end{tbox}
+
+\begin{tbox}{Дифференцирование системы}
+	Дифференцируем систему (\ref{eq:5.7}) по $x$:
+	\begin{equation*}
+		\begin{cases}
+			\frac{\partial u}{\partial x} = \frac{\partial f}{\partial x} + \frac{\partial f}{\partial z} \cdot \frac{\partial z}{\partial x} \\
+			\frac{\partial v}{\partial x} = \frac{\partial g}{\partial x} + \frac{\partial g}{\partial z} \cdot \frac{\partial z}{\partial x} \\
+			\frac{\partial w}{\partial u} \cdot \frac{\partial u}{\partial x} + \frac{\partial w}{\partial v} \cdot \frac{\partial v}{\partial x} = \frac{\partial p}{\partial z} \cdot \frac{\partial z}{\partial x}
+		\end{cases}
+	\end{equation*}
+	Подставляем в последнее уравнение $\frac{\partial u}{\partial x}$ и $\frac{\partial v}{\partial x}$ из первых двух уравнений:
+	\begin{equation*}
+		\frac{\partial w}{\partial u} \left(\frac{\partial f}{\partial x} + \frac{\partial f}{\partial z} \frac{\partial z}{\partial x}\right) + \frac{\partial w }{\partial v}\left(\frac{\partial g}{\partial x} + \frac{\partial g}{\partial z} \frac{\partial z}{\partial x}\right) = \frac{\partial p}{\partial x} + \frac{\partial p}{\partial z} \frac{\partial z}{\partial x}
+	\end{equation*}
+	Выражаем из получившегося уравнения $\frac{\partial z}{\partial x}$.
+	\begin{equation*}
+		\frac{\partial w}{\partial u} \frac{\partial f}{\partial x} + \frac{\partial w}{\partial v} \frac{\partial g}{\partial x} - \frac{\partial p}{\partial x} = \left(\frac{\partial p}{\partial z} - \frac{\partial w}{\partial u} \frac{\partial f}{\partial z} - \frac{\partial w}{\partial v} \frac{\partial g}{\partial z}\right) \frac{\partial z}{\partial x}
+	\end{equation*}
+	\begin{equation} \label{eq:5.8}
+		\frac{\partial z}{\partial x} = \frac{\displaystyle\frac{\partial w}{\partial u} \frac{\partial f}{\partial x} + \frac{\partial w}{\partial v} \frac{\partial g}{\partial x} - \frac{\partial p}{\partial x}}{\displaystyle\frac{\partial p}{\partial z} - \frac{\partial w}{\partial u} \frac{\partial f}{\partial z} - \frac{\partial w}{\partial v} \frac{\partial g}{\partial z}}
+	\end{equation}
+
+	Аналогичным образом, дифференцируя систему \cref{eq:5.7} по $y$, найдем $\frac{\partial z}{\partial y}$.
+	\begin{equation} \label{eq:5.9}
+		\frac{\partial z}{\partial y} = \frac{\displaystyle\frac{\partial w}{\partial u} \frac{\partial f}{\partial y} + \frac{\partial w}{\partial v} \frac{\partial g}{\partial y} - \frac{\partial p}{\partial y}}{\displaystyle\frac{\partial p}{\partial z} - \frac{\partial w}{\partial u} \frac{\partial f}{\partial z} - \frac{\partial w}{\partial v} \frac{\partial g}{\partial z}}
+	\end{equation}
+
+	Формулы \cref{eq:5.8,eq:5.9} позволяют преобразовать частные производные $\frac{\partial z}{\partial x}$, $\frac{\partial z}{\partial y}$ в старые переменные через частные производные новых переменных $\frac{\partial w}{\partial u}$, $\frac{\partial w}{\partial v}$.
+\end{tbox}
+
+\subsubsection*{Пример замены переменных}
+	Перейти к новым переменным $u$, $v$ и $w(u,v)$ в уравнении:
+	\begin{equation*}
+		x^2 \frac{\partial z}{\partial x} + y^2 \frac{\partial z}{\partial y} = z^2, \quad \text{если $u=x, v = \frac{1}{y} - \frac{1}{x}$,}
+	\end{equation*}
+	Запишем для данной замены $w = \frac{1}{z} - \frac{1}{x}$ систему \cref{eq:5.7}:
+	\begin{equation*}
+		\begin{cases}
+			u(x) = x\\
+			v(x,y) = \frac{1}{y} - \frac{1}{x}\\
+			w(u(x), v(x,y)) = \frac{1}{z(x,y)} - \frac{1}{x}
+		\end{cases}
+		\Bigg|\frac{\partial}{\partial x} \quad \Bigg| \frac{\partial}{\partial y}
+	\end{equation*}
+	Дифференцируем систему по $x$:
+	\begin{multline*}
+		\begin{cases}
+			u_x' = 1\\
+			v_x' = \frac{1}{x^2}\\
+			w_u' \cdot u_x' + w_v' \cdot v_x' = -\frac{1}{z^2} \cdot z_x' + \frac{1}{x^2}
+		\end{cases} \Rightarrow\\\Rightarrow w_u' + \frac{1}{x^2} w_v' - \frac{1}{x^2} = - \frac{1}{z^2} z_x' \Rightarrow z_x' = z^2\left(\frac{1}{x^2} - w_u' - \frac{1}{x^2} w_v'\right)
+	\end{multline*}
+	Дифференцируем систему по $y$:
+	\begin{equation*}
+		\begin{cases}
+			u_y' = 0\\
+			v_y' = -\frac{1}{y^2}\\
+			w_v' \cdot v_y' = -\frac{1}{z^2} \cdot z_y'
+		\end{cases}
+		\Rightarrow -\frac{1}{y^2} w_v' = -\frac{1}{z^2} z_y' \Rightarrow z_y' = \frac{z^2}{y^2} w_v'
+	\end{equation*}
+	Подставляем $z_x'$ и $z_y'$ в исходное уравнение:
+	\begin{equation*}
+		\begin{split}
+			x^2 \cdot z^2 \left(\frac{1}{x^2} - w_u' - \frac{1}{x^2} w_v'\right) + y^2 \cdot \frac{z^2}{y^2} w_v' = z^2\\
+			z^2\left(1 - \frac{1}{x^2} w_u' - w_v'\right) + z^2 w_v' = z^2 \quad \Big| : z^2\\
+			1 - \frac{1}{x^2}w_u' - w_v' + w_v' = 1 \quad \Rightarrow \quad -\frac{1}{x^2} w_u' = 0 \quad \Big| \cdot (-x^2)\\
+			w_u' = 0 \quad \text{или} \quad \frac{\partial w}{\partial u} = 0.
+		\end{split}
+	\end{equation*}
+	Такой вид имеет уравнение в новых переменных.
+
+
+\begin{tbox}{Замена независимых переменных}
+	Если требуется заменить независимые переменные $x$ и $y$ на новые независимые переменные $u$ и $v$, а функция $z$ остается прежней, только в новых переменных она будет зависеть от $u$ и $v$, в этом случае систему (\ref{eq:5.7}) нужно записать в виде:
+	\begin{equation} \label{eq:5.10}
+		\begin{cases}
+			u(x,y) = \, f(x,y,z(x,y))\\
+			v(x,y) = \, g(x,y,z(x,y))\\
+			z(u(x,y), v(x,y)) = \, z(x,y)
+		\end{cases}
+	\end{equation}
+\end{tbox}
+\newpage
+\subsubsection*{Пример}
+Преобразовать уравнение $x \frac{\partial z}{\partial x} + y \frac{\partial z}{\partial y} = \frac{x}{z}$, если $u = 2x - z^2$, $v = \frac{y}{2}$ -- новые независимые переменные. Запишем систему:
+\begin{equation*}
+	\begin{cases}
+		u(x,y) = 2x - z^2(x,y)\\
+		v(x,y) = \frac{y}{z(x,y)}\\
+		z(u(x,y), v(x,y)) = z(x,y)
+	\end{cases}
+	\Bigg| \frac{\partial}{\partial x} \Rightarrow\\
+	\begin{cases}
+		u_x' = 2 - 2z \cdot z_x'\\
+		v_x' = -\frac{y}{z^2} \cdot z_x'\\
+		z_u' \cdot u_x' + z_v' \cdot v_x' = z_x'
+	\end{cases} \Rightarrow
+\end{equation*}
+\begin{align*}
+	2z_u'(1 - z \cdot z_x') - \frac{y}{z^2} z_v' z_x' = z_x'
+\end{align*}
+
+Выразим $z_x'$: \(\quad 2z_u' = \left(2z \cdot z_u' + \frac{y}{z^2} z_v' + 1\right) \cdot z_x'\)
+\begin{gather*}
+	z_x' = \frac{2 z_u'}{2z \cdot z_u' + \frac{y}{z^2} z_v' + 1} \qquad u_y' = -2z \cdot z_y' \qquad v_y' = \frac{z - y \cdot z_y'}{z^2} = \frac{1}{z} - \frac{y}{z^2}z_y'\\
+	z_u' u_y' + z_v' v_y' = z_y' \quad \Rightarrow \quad -2z \cdot z_u' \cdot z_y' + z_v' \left(\frac{1}{z} - \frac{y}{z^2}\right) z_y' = z_y'.\\
+	z_y' = \frac{\frac{1}{z} z_v'}{2z \cdot z_u' + \frac{y}{z^2} z_v' + 1} \quad \text{-- подставляем в уравнение}\\
+	\frac{x \cdot 2z_y'}{2z \cdot z_u' + \frac{y}{z^2} z_v' + 1} + \frac{y \frac{1}{z} z_v'}{2z \cdot z_u' + \frac{y}{z^2}z_v' + 1} = \frac{x}{z} \quad \Big| \cdot (2z \cdot z_u' + \frac{y}{z^2} z_v' + 1)\\
+	2x  z_u' + \frac{y}{z} z_v' = \frac{x}{2} 2 z  z_u' + \frac{x}{z} \frac{y}{z^2} z_v' + \frac{x}{z}\\
+	2x  z_u' + \frac{y}{z} z_v' = 2x  z_u' + \frac{y}{z} \frac{x}{z^2} z_v' + \frac{x}{z}\\
+	\frac{y}{z}\left(1 - \frac{x}{z^2}\right) z_v' = \frac{x}{z}\\
+	u = 2x - z^2  \Rightarrow  x = \frac{u+z^2}{2} \qquad v = \frac{y}{z}\\
+	v(z^2 - x^2) z_v' = xz \Rightarrow z_v' = \frac{z}{v} \frac{z^2 + u}{z^2 - u} \quad \Rightarrow \quad \boxed{\text{\textbf{Ответ: }} \frac{\partial z}{\partial v} = \frac{z}{v} \frac{z^2 + u}{z^2 - u}}
+\end{gather*}
+

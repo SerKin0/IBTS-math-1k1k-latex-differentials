@@ -1,0 +1,33 @@
+\subsection{Геометрический смысл градиента}
+Пусть $y = f(\vec{x})$, производная по направлению $\vec{l}$ ($\vec{l} \in \mathbb{R}^k$, $||\vec{l}|| = 1$) в точке $\vec{x}_0$ вычисляется по формуле:
+\begin{align*}
+	\frac{\partial f(\vec{x}_0)}{\partial l} = \left(\grad \, f(\vec{x}_0), \, \vec{l}\right) = ||\grad \, f(\vec{x}_0)|| \cdot ||\vec{l}|| \cdot \cos \omega && \omega = \widehat{\left(\grad \, f(\vec{x}_0), \vec{l}\right)}
+\end{align*}
+\begin{equation*}
+	\boxed{\frac{\partial f(\vec{x}_0)}{\partial l} = ||\grad \, f(\vec{x}_0)|| \cdot \cos \omega}
+\end{equation*}
+
+\begin{enumerate}
+	\item Пусть $\grad \, f(\vec{x}_0) \uparrow \uparrow \vec{l}$, то $\omega = 0$, $\cos \omega = 1$.
+	\begin{equation*}
+		\frac{\partial \, f(\vec{x}_0)}{\partial l} = ||\grad \, f(\vec{x}_0)|| > 0.
+	\end{equation*}
+
+	В направлении вектора $\grad \, f(\vec{x}_0)$ -- функция монотонно возрастает, при этом производная по направлению принимает \textbf{максимальное} значение, это означает, что в направлении вектора $\grad \, f(\vec{x}_0)$ -- функция быстрее всего возрастает из точки $x_0$, поэтому вектор $\grad \, f(\vec{x}_0)$ определяет наибыстрейший подъема функции из точки $x_0$.
+
+	\item Пусть $\grad \, f(\vec{x}_0) \uparrow \downarrow \vec{l}$, то $\omega = \pi$, $\cos \omega = -1$.
+	\begin{equation*}
+		\frac{\partial \, f(\vec{x}_0)}{\partial l} = -||\grad \, f(\vec{x}_0)|| < 0.
+	\end{equation*}
+
+	Тогда по теореме в направлении противоположному вектору $\grad \, f(\vec{x}_0)$ функция будет монотонно убывать, причем в направлении наибыстрейшего спуска функции из точки $x_0$, так как:
+	\begin{equation*}
+		\left|\frac{\partial f(\vec{x}_0)}{\partial l}\right| = \left|\grad \, f(\vec{x}_0)\right|
+	\end{equation*}
+	-- принимает модуль максимальное значение.
+	\item Пусть $\grad \, f(\vec{x}_0) \perp \vec{l}$, то $\omega = \frac{\pi}{2}$, $\cos \omega = 0$.
+	\begin{equation*}
+		\frac{\partial \, f(\vec{x}_0)}{\partial l} = 0.
+	\end{equation*}
+	То есть по направлению перпендикулярном градиенту $\grad \, f(\vec{x}_0)$, получается что функция $f(\vec{x})$ в точке $\vec{x}_0$ функция не изменяется.
+\end{enumerate}
