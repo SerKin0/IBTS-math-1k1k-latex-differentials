@@ -1,36 +1,13 @@
 \documentclass[9pt]{article}
 
 \usepackage{bookstyle}
-\usepackage{extsizes}
-\usepackage{fancyhdr} % Пакет для настройки колонтитулов
-\usepackage{graphicx} % Для работы с графикой (на случай, если используется в image/)
-
-\pagestyle{fancy} % Устанавливаем стиль fancy для всех страниц
-\fancyhf{} % Очищаем текущие колонтитулы
-
-% Настраиваем rightmark для отображения названия подраздела
-\renewcommand{\sectionmark}[1]{\markright{#1}} % Устанавливаем метку для раздела
-\renewcommand{\subsectionmark}[1]{\markright{\thesubsection\ #1}} % Устанавливаем метку для подраздела
-
-% Переопределяем стиль страницы для оглавления
-\let\oldtoc\tableofcontents
-\renewcommand{\tableofcontents}{\thispagestyle{fancy}\oldtoc}
 
 \graphicspath{{./image/}} % Директория папки с фотографиями
 
-\fancypagestyle{plain}{%
-	\fancyhf{}
-	\fancyhead[R]{Правый заголовок}
-	\fancyfoot[C]{\small Страница \thepage}
-	\fancyhead[R]{\small\itshape\rightmark}
-}
-
-\fancyhead[R]{\small\itshape\rightmark}
-\fancyfoot[C]{\thepage} % Номер страницы внизу
 
 \begin{document}
 	\include{source/title}
-	\tableofcontents
+	\include{source/content}
 	\include{source/opening}
 	\section{Основные понятия теории пределов и непрерывности функций многих переменных}
 	\input{source/1_1}
